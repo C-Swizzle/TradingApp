@@ -18,7 +18,8 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         description:DataTypes.TEXT,
-        condition:DataTypes.STRING
+        condition:DataTypes.STRING,
+        inTransaction: DataTypes.BOOLEAN
         }
     });
     sellOffers.associate = function(models) {
