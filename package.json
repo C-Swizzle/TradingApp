@@ -1,5 +1,5 @@
 {
-  "name": "tradingApp",
+  "name": "trading-app",
   "version": "1.0.0",
   "description": "Project 2 Starter",
   "main": "server.js",
@@ -27,3 +27,5 @@
     "prettier": "^1.13.7"
   }
 }
+
+// i shouldnt be able to push here
