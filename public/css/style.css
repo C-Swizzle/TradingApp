@@ -1,0 +1,43 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+.ochre1{
+  background: #7CDBD5;
+}
+.ochre2{
+  color: rgb(154, 118, 0);
+}
+.peach1{
+  background-color: #EDDBCD;
+}
+.coolgrey1{
+background-color:  #F9BE02;
+}
+.butter{
+  background-color: #FEDC3D;
+}
+@font-face {
+
+  font-family: 'Deftone-Stylus' ;
+  src: url(' ../resources/fonts/DEFTONE.ttf') format('truetype');
+
+}
+@font-face {
+  font-family: 'MailartRubberstamp-Regular';
+  src: url(' ../resources/fonts/MailartRubberstamp-Regular.otf');
+}
+
+.fonttest {
+  font-family: 'MailartRubberstamp-Regular';
+}
