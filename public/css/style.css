@@ -12,32 +12,33 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
-.ochre1{
-  background: #7CDBD5;
+.start-button{
+  background: #01ABAA;
 }
-.ochre2{
-  color: rgb(154, 118, 0);
+.index-title{
+  color: #FEDC3D;
 }
-.peach1{
-  background-color: #EDDBCD;
-}
-.coolgrey1{
-background-color:  #F9BE02;
+.footer-color{
+background-color:  #FEDC3D;
+color: black;
 }
 .butter{
   background-color: #FEDC3D;
 }
-@font-face {
 
+@font-face {
   font-family: 'Deftone-Stylus' ;
   src: url(' ../resources/fonts/DEFTONE.ttf') format('truetype');
-
 }
 @font-face {
   font-family: 'MailartRubberstamp-Regular';
   src: url(' ../resources/fonts/MailartRubberstamp-Regular.otf');
 }
-
-.fonttest {
-  font-family: 'MailartRubberstamp-Regular';
+#index-banner{
+  background-image: url( ../resources/images/index\ background\ 2.png);
+  opacity: 0.75;
+  background-repeat: 100%;
+}
+.white-text {
+  color: black;
 }
