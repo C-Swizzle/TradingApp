@@ -15,24 +15,17 @@
 .start-button{
   background: #01ABAA;
 }
-.index-title{
-  color: #FEDC3D;
+.index-body-title{
+  color: #FEDC3D; 
+  font-family: Deftone-Stylus;
 }
 .footer-color{
 background-color:  #FEDC3D;
 color: black;
 }
-.butter{
-  background-color: #FEDC3D;
-}
-
 @font-face {
   font-family: 'Deftone-Stylus' ;
   src: url(' ../resources/fonts/DEFTONE.ttf') format('truetype');
-}
-@font-face {
-  font-family: 'MailartRubberstamp-Regular';
-  src: url(' ../resources/fonts/MailartRubberstamp-Regular.otf');
 }
 #index-banner{
   background-image: url( ../resources/images/index\ background\ 2.png);
@@ -41,4 +34,7 @@ color: black;
 }
 .white-text {
   color: black;
+}
+#logo-container {
+  width: 66%;
 }
