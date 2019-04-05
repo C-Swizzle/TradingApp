@@ -3,16 +3,16 @@ module.exports = function(sequelize, DataTypes) {
     {
         name:{
             type:DataTypes.STRING,
-            validation:{
-                notNull:true,
+            validate:{
+                allowNull:false,
                 notEmpty:true,
                 len:[1,255],
 
             },
         price: {
             type:DataTypes.DECIMAL,
-            validation:{
-                notNull:true,
+            validate:{
+                allowNull:false,
                 notEmpty:true,
                 min: 0
             }
