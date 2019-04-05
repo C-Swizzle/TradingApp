@@ -22,6 +22,6 @@ module.exports = function(app) {
     });
   });
 };
-db.Users.create({username:"cmack",password:"password",credits:10}).then(function(){
+db.Users.create({username:"cmack",password:"password",credits:10,email:"something@gmail.com",firstName:"chris",lastName:"mack"}).then(function(){
   console.log("did it");
 });

@@ -2,16 +2,16 @@ module.exports = function(sequelize, DataTypes) {
   var Users = sequelize.define("Users", {
     firstName:{
       type:DataTypes.STRING,
+      allowNull:false,
       validate: {
-        allowNull:false,
         notEmpty:true,
-        len:[2,50],
+        len:[2,50]
       }
     },
     lastName:{
       type:DataTypes.STRING,
+      allowNull:false,
       validate: {
-        allowNull:false,
         notEmpty:true,
         len:[2,50],
       }
@@ -32,8 +32,8 @@ module.exports = function(sequelize, DataTypes) {
 
     username: {
       type:DataTypes.STRING,
+      allowNull:false,
       validate: {
-        allowNull:false,
         notEmpty:true,
         len:[2,20],
       },
@@ -44,8 +44,8 @@ module.exports = function(sequelize, DataTypes) {
     }, 
     password: {
       type:DataTypes.STRING,
+      allowNull:false,
       validate: {
-        allowNull:false,
         notEmpty:true,
         len:[2,20],
       }
@@ -56,8 +56,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     credits:  {
       type:DataTypes.DECIMAL,
+      allowNull:false,
       validate:{
-        allowNull:false,
         notEmpty:true
       }
     },
