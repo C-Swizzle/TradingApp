@@ -27,7 +27,7 @@ color: black;
   font-family: 'Deftone-Stylus' ;
   src: url(' ../resources/fonts/DEFTONE.ttf') format('truetype');
 }
-#index-banner{
+#index-banner-img{
   background-image: url( ../resources/images/mainImage.png);
   opacity: 0.85;
   background-repeat: 100%;
