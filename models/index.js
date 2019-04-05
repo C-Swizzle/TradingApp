@@ -8,6 +8,15 @@ var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
 
+// config.authSwitchHandler = (unused, cb) => {
+//   // workaround for node mysql bug #1507
+//   if (pluginName === 'auth_socket') {
+//     cb(null, Buffer.alloc(0));
+//   } else {
+//     cb(new Error("Unsupported auth plugin"));
+//   }
+// };
+
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
