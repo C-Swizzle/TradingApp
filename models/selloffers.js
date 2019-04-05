@@ -3,23 +3,38 @@ module.exports = function(sequelize, DataTypes) {
     {
         name:{
             type:DataTypes.STRING,
+            allowNull:false,
             validate:{
-                allowNull:false,
                 notEmpty:true,
-                len:[1,255],
-
-            },
+                len:[1,255]
+            }
+        },
         price: {
             type:DataTypes.DECIMAL,
+            allowNull:false,
             validate:{
-                allowNull:false,
                 notEmpty:true,
                 min: 0
             }
         },
         description:DataTypes.TEXT,
         condition:DataTypes.STRING,
-        inTransaction: DataTypes.BOOLEAN
+        inTransaction: {
+            type:DataTypes.BOOLEAN,
+            defaultValue:false
+        },
+        soldBoolean:{
+            type:DataTypes.BOOLEAN,
+            defaultValue:false
+        }
+        ,
+        soldAtTime:{
+            type:DataTypes.DATE,
+            defaultValue:null
+        },
+        buyerID: {
+            type:DataTypes.INTEGER,
+            defaultValue:null
         }
     });
     sellOffers.associate = function(models) {
