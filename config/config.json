@@ -3,11 +3,7 @@
     "username": "projectuser",
     "password": "password",
     "database": "tradingapp_db",
-<<<<<<< HEAD
-    "host": "localhost",
-=======
     "host": "127.0.0.1",
->>>>>>> 4ae699b054f3e7f7e39c9d152154e7fa42980c98
     "dialect": "mysql"
   },
   "test": {
