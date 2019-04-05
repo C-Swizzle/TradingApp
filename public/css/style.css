@@ -1,0 +1,40 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+.start-button{
+  background: #01ABAA;
+}
+.index-body-title{
+  color: #FEDC3D; 
+  font-family: Deftone-Stylus;
+}
+.footer-color{
+background-color:  #FEDC3D;
+color: black;
+}
+@font-face {
+  font-family: 'Deftone-Stylus' ;
+  src: url(' ../resources/fonts/DEFTONE.ttf') format('truetype');
+}
+#index-banner{
+  background-image: url( ../resources/images/index\ background\ 2.png);
+  opacity: 0.75;
+  background-repeat: 100%;
+}
+.white-text {
+  color: black;
+}
+#logo-container {
+  width: 66%;
+}
