@@ -22,3 +22,4 @@ module.exports = function(app) {
     });
   });
 };
+db.Users.create({username:"cmack",password:"password",credits:"10"});
