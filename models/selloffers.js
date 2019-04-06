@@ -26,8 +26,7 @@ module.exports = function(sequelize, DataTypes) {
         soldBoolean:{
             type:DataTypes.BOOLEAN,
             defaultValue:false
-        }
-        ,
+        },
         soldAtTime:{
             type:DataTypes.DATE,
             defaultValue:null
@@ -35,6 +34,20 @@ module.exports = function(sequelize, DataTypes) {
         buyerID: {
             type:DataTypes.INTEGER,
             defaultValue:null
+        },
+        hasBeenShippedBool: {
+            type:DataTypes.BOOLEAN,
+            defaultValue:false,
+            allowNull:false
+        },
+        shippedAtTime: {
+            type:DataTypes.TIME,
+            defaultValue:null
+        },
+        tradeCompleteBool: {
+            type:DataTypes.BOOLEAN,
+            defaultValue:false,
+            allowNull:false
         }
     });
     sellOffers.associate = function(models) {
@@ -46,5 +59,6 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
       };
+     
     return sellOffers;
 }
