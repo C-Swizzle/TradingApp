@@ -118,14 +118,10 @@ app.get("/api/user_data", function(req, res) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
-      id: req.user.id
+      id: req.user.id,
+      address: req.user.address
     });
   }
 });
 };
-<<<<<<< HEAD
-=======
-// db.Users.create({username:"cmack",password:"password",credits:10,email:"something@gmail.com",firstName:"chris",lastName:"mack"}).then(function(){
-//   console.log("did it");
-// });
->>>>>>> 1ce4f401d3478eeaeb73b9214afca64daa3dc1e7
+

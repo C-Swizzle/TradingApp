@@ -68,12 +68,13 @@ module.exports = function(app) {
   app.get("/signin", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
+      console.log(req.user);
       res.redirect("/members");
     }
     res.sendFile(path.join(__dirname, "../public/signin.html"));
 
   });
-  
+
   app.get("/homepage",function(req,res){
     res.render("index",{credits:5,rating:4.4,firstName:"chris",lastName:"m"});
   })
