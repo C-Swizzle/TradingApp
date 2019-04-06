@@ -17,6 +17,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 (function (factory) {
   window.cash = factory();
 })(function () {
+  console.log("Materialize loaded!!")
   var doc = document,
       win = window,
       ArrayProto = Array.prototype,
@@ -12334,4 +12335,6 @@ $jscomp.polyfill = function (e, r, p, m) {
   }
 
   Range.init($('input[type=range]'));
+
+  $('select').material_select();
 })(cash, M.anime);
