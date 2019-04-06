@@ -26,20 +26,26 @@
   </nav>
   <div class="nav-wrapper">
     <form id="reg-form">
-      <div class="input-field">
-        <input type="text" class="validate" required>
-      </div>
-      <button class="btn btn-large btn-register waves-effect waves-light" type="submit" name="action" id="sign-up-submit">Search
-                        
-                        </button>
+      
+    <input id="search" type="text">
     </form>
   </div>
 
   <script>
 $(document).ready(function(){
-  $("#search").on("click",function(e){
-    e.preventDefault();
+  $(document).keyup(function(event){
+    event.preventDefault()
   })
+  $("#submit").on("click",function(e){
+    e.preventDefault();
+  });
+  $('form').keypress(function(event) { 
+    if (event.keyCode===13){
+      event.preventDefault();
+      
+    }
+    
+}); 
 });
 
 </script>
