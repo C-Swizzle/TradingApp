@@ -26,8 +26,7 @@ module.exports = function(sequelize, DataTypes) {
         soldBoolean:{
             type:DataTypes.BOOLEAN,
             defaultValue:false
-        }
-        ,
+        },
         soldAtTime:{
             type:DataTypes.DATE,
             defaultValue:null
