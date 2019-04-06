@@ -61,10 +61,11 @@ $("#sign-up-submit").on("click",function(e){
             username:username,
             address:address,
             email:email,
-            password:password
+            password:password,
+            
         }
         console.log(userObject);
-        $.ajax({method:"POST",url:"/api/users",data:userObject}).then(function(response){
+        $.ajax({method:"POST",url:"/api/signup",data:userObject}).then(function(response){
 
         });
     }
