@@ -57,11 +57,21 @@ module.exports = function(sequelize, DataTypes) {
     credits:  {
       type:DataTypes.DECIMAL,
       allowNull:false,
+      defaultValue:0,
       validate:{
         notEmpty:true
       }
     },
-
+    rating: {
+      type:DataTypes.DECIMAL
+    },
+    numberOfTrades:{
+      type:DataTypes.INTEGER,
+      defaultValue:0,
+      validate:{
+        min:0
+      }
+    }
   });
 
   Users.associate = function(models) {
