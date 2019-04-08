@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>The Cart & Disc</title>
+    <title>list-game The Cart & Disc</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -17,6 +17,10 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script src="js/signup.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="./js/materialize.js"></script>
+  <script src="./js/init.js"></script>  
+
 </head>
 <body>
     <nav class="black" role="navigation">
@@ -31,48 +35,63 @@
             <form class="col s12" id="reg-form">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="first_name" type="text" class="validate" required>
-                        <label for="first_name" class="active">First Name *</label>
-                        <div class="first-name-div"></div>
+                        <input id="title" type="text" class="validate" required>
+                        <label for="title" class="active" style="font-size: 18px; color: black;">Title *</label>
+                        <div class="title-div"></div>
                     </div>
                     <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate" required>
-                        <label for="last_name" class="active">Last Name *</label>
-                        <div class="last-name-div"></div>
+                        <div class="select-wrapper"><i class="mdi-navigation-arrow-drop-down active"></i>
+                          <select class="initialized">
+                            <option value="" disabled="" selected="">Console *</option>
+                            <option value="1">PS4</option>
+                            <option value="2">Xbox One</option>
+                            <option value="3">Nintendo Switch</option>
+                            <option value="4">Xbox 360</option>
+                            <option value="5">PS3</option>
+                            <option value="6">WiiU</option>
+                            <option value="7">Nintendo 3DS</option>
+                            <option value="8">Nintendo DS</option>
+                            <option value="9">Nintendo Legacy</option>
+                            <option value="10">Playstation Legacy</option>
+                            <option value="11">Xbox Legacy</option>
+                            <option value="12">SEGA</option>
+                            <option value="13">Other</option>
+                          </select>
+                        </div>  
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input  id="username" type="text" class="validate" required>
-                        <label for="username" class="active">Username *</label>
-                        <div class="username-div"></div>  
+                        <select>
+                            <option value="" disabled="" selected="">Condition *</option>
+                            <option value="1">Brand New - As in factory sealed never benn played, straight outta the loscked case at walmart </option>
+                            <option value="2">Excellent</option>
+                            <option value="3">Average</option>
+                            <option value="3">Fair/Playable</option>
+                        </select>
                     </div>
                     <div class="input-field col s6">
-                        <input id="email" type="email" class="validate" required>
-                        <label for="email" class="active">Email *</label>
-                        <div class="email-div"></div>
+                        <input id="price" type="number" class="validate" required>
+                        <label for="price" class="active" style="font-size: 18px; color: black;">Price *</label>
+                        <div class="price-div"></div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input  id="address" type="text" class="validate">
-                        <label for="address" class="active">Address</label>
-                    </div>
+                        <textarea id="message5" class="materialize-textarea" length="200"></textarea>
+                        <label for="message">Add more details or leave a message </label>
+                    <span class="character-counter" style="float: right; font-size: 12px; height: 10px;"></span>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input  id="password" type="password" class="validate" required>
-                        <label for="password" class="active">Password *</label>
-                        <div class="pass-div"></div>
+                        <input  id="image-link" type="url" class="validate" required>
+                        <label for="image-link" class="active">Add Image URL</label>
+                        <div class="image-link-div"></div>
                     </div>  
-                    <div class="input-field col s6">
-                        <input  id="confirm-password" type="password" class="validate" required>
-                        <label for="confirm-password" class="active">Confirm password *</label>
-                    </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <button class="btn btn-large btn-register waves-effect waves-light" type="submit" name="action" id="sign-up-submit">Register
+                        <button class="btn btn-med btn-register waves-effect waves-light" type="submit" name="action" id="sign-up-submit">List your game
                         <i class="material-icons right">done</i>
                         </button>
                     </div>
@@ -81,10 +100,13 @@
             </form>
         </div>
     </div>
+    <script>$(document).ready(function() {
+            $('select').formSelect();  
+          });</script>
 </body>
 </html>
 
-<script>
+<!-- <script>
     $(document).ready(function(){
     $("#sign-up-submit").on("click",function(e){
         e.preventDefault();
@@ -158,4 +180,4 @@
         console.log(firstName);
     })
     });
-</script>
+</script> -->
