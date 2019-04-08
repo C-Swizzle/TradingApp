@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>list-game The Cart & Disc</title>
+    <title>buyer-feedback The Cart & Disc</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -34,69 +34,55 @@
         <div class="row">
             <form class="col s12" id="reg-form">
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                         <input id="title" type="text" class="validate" required>
-                        <label for="title" class="active" style="font-size: 18px; color: black;">Title *</label>
+                        <label for="title" class="active" style="font-size: 17px; color: black;">Trade info - " import seller, game, price" </label>
                         <div class="title-div"></div>
-                    </div>
-                    <div class="input-field col s6">
-                        <div class="select-wrapper"><i class="mdi-navigation-arrow-drop-down active"></i>
-                          <select class="initialized">
-                            <option value="" disabled="" selected="">Console *</option>
-                            <option value="1">PS4</option>
-                            <option value="2">Xbox One</option>
-                            <option value="3">Nintendo Switch</option>
-                            <option value="4">Xbox 360</option>
-                            <option value="5">PS3</option>
-                            <option value="6">WiiU</option>
-                            <option value="7">Nintendo 3DS</option>
-                            <option value="8">Nintendo DS</option>
-                            <option value="9">Nintendo Legacy</option>
-                            <option value="10">Playstation Legacy</option>
-                            <option value="11">Xbox Legacy</option>
-                            <option value="12">SEGA</option>
-                            <option value="13">Other</option>
-                          </select>
-                        </div>  
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
-                        <select>
-                            <option value="" disabled="" selected="">Condition *</option>
-                            <option value="1">Brand New - As in factory sealed never benn played, straight outta the loscked case at walmart </option>
-                            <option value="2">Excellent</option>
-                            <option value="3">Average</option>
-                            <option value="3">Fair/Playable</option>
-                        </select>
+                        <div class="input-field col s12">
+                            <div class="select-wrapper"><i class="mdi-navigation-arrow-drop-down active"></i>
+                                <select class="initialized">
+                                <option value="" disabled="" selected="">Was the item received?</option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                                <option value="3">Yes item received, but there is a problem.</option>
+                                </select>
+                            </div>  
+                        </div>
                     </div>
-                    <div class="input-field col s6">
-                        <input id="price" type="number" class="validate" required>
-                        <label for="price" class="active" style="font-size: 18px; color: black;">Price *</label>
-                        <div class="price-div"></div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select>
+                            <option value="" disabled="" selected="">Rate this transaction</option>
+                            <option value="1">Positive - trade as expected</option>
+                            <option value="2">Neutral - trade acceptable with minor issue </option>
+                            <option value="3">Negative - poor trade experience</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <textarea id="message5" class="materialize-textarea" length="200"></textarea>
-                        <label for="message">Add more details or leave a message </label>
-                    <span class="character-counter" style="float: right; font-size: 12px; height: 10px;"></span>
-                </div>
+                        <label for="message">Add comments and or trade details </label>
+                    </div>
+                </div>    
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                         <input  id="image-link" type="url" class="validate" required>
                         <label for="image-link" class="active">Add Image URL</label>
                         <div class="image-link-div"></div>
                     </div>  
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
-                        <button class="btn btn-med btn-register waves-effect waves-light" type="submit" name="action" id="sign-up-submit">List your game
+                    <div class="input-field col s12">
+                        <button class="btn btn-med btn-register waves-effect waves-light" type="submit" name="action" id="sign-up-submit">Submit feedback
                         <i class="material-icons right">done</i>
                         </button>
                     </div>
                 </div>
-                <small>*required field</small>
+                
             </form>
         </div>
     </div>
