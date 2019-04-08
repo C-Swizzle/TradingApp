@@ -75,7 +75,21 @@ module.exports = function(app) {
   });
   
   app.get("/homepage",function(req,res){
-    res.render("index",{credits:5,rating:4.4,firstName:"chris",lastName:"m"});
+    if(!req.user){
+      res.redirect("/");
+    } else{
+    res.render("index",{
+      firstName:req.user.firstName,
+      lastName:req.user.lastName,
+      email: req.user.email,
+      rating:req.user.rating,
+      id: req.user.id, 
+      address: req.user.address,
+      credits: req.user.credits,
+      numberOfTrades:req.user.numberOfTrades
+    });
+
+  }
   })
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
