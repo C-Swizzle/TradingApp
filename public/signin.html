@@ -24,22 +24,17 @@
                 <form class="col s6">
                   <div class="row">
 
-                        <!-- <div class="input-field col s6">
-                        <label for="email">Email *</label><br>
-                        <input  id="email" type="email" class="validate">
-                        <div class="email-div"></div>
-                        </div> -->
 
                         <div class="input-field col s6">
                             <label for="username">UserName *</label><br>
                             <input  id="username" type="text" class="validate">
-                            <!-- <div class="email-div"></div>  -->
+                            <div class="username-div"></div> 
                             </div>
 
                         <div class="input-field col s6">
                         <label for="password">Password *</label><br>
                         <input id="password" type="password" class="validate">
-                        <!-- <div class="pass-div"></div> -->
+                        <div class="pass-div"></div>
                         </div>
 
                   </div>
@@ -53,42 +48,46 @@
             $("#sign-in-submit").on("click",function(e){
                 e.preventDefault();
                 
-                var password=$("#password").val();
+                var pass=$("#password").val();
                 
-                var username=$("#username").val().trim();
+                var user=$("#username").val().trim();
 
                 var userObject={
                     
                     
                     
-                    username:username,
-                    password:password
+                    username:user,
+                    password:pass
                 };
-
-                // $.ajax({method:"POST",url:"/api/user_data",data:userObject}).then(function(response){
-
-                // });
 
                 // If we have an email and password we run the loginUser function and clear the form
                 loginUser(userObject.username, userObject.password);
-                // email.val("");
-                // password.val("");
+                    // user.empty();
+                    // pass.empty();
             });
 
             // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
             function loginUser(username, password) {
                 $.post("/api/signin", {
-                username: username,
-                password: password
+                    username: username,
+                    password: password
                 }).then(function(data) {
-                    console.log("data" + data);
-                window.location.replace(data);
+                //console.log(data);
+                    window.location.replace(data);
                 // If there's an error, log the error
                 }).catch(function(err) {
-                console.log(err);
+                    console.log(err);
+                    console.log(err.status);
+                    if (err.status === 401){
+                        $(".pass-div").empty();
+                        var str=$("<p>");
+                        str.css("color","red");
+                        str.text("Username or password not valid")
+                        $(".pass-div").append(str);
+                    }
                 });
             };
-            });
+        });
 
         //});
     </script>
