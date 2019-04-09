@@ -66,7 +66,8 @@ $("#sign-up-submit").on("click",function(e){
         }
         console.log(userObject);
         $.ajax({method:"POST",url:"/api/signup",data:userObject}).then(function(response){
-
+            
+            window.location.replace("/signin");
         });
     }
 

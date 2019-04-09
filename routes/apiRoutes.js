@@ -71,7 +71,7 @@ app.put("/api/sellOffers", function(req, res){
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
-    res.json("/members");
+     return res.json("/members");
   });
 //
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -91,7 +91,9 @@ app.put("/api/sellOffers", function(req, res){
       credits: 20
       
     }).then(function() {
-      res.redirect(307, "/api/signin");
+      //return res.json("/signin");
+      return res.redirect(307, "/signin");
+      //return res.redirect("/members");
 
     }).catch(function(err) {
       console.log(err);
@@ -102,8 +104,10 @@ app.put("/api/sellOffers", function(req, res){
 //
   // Route for logging user out
   app.get("/logout", function(req, res) {
+    console.log("At logout route");
     req.logout();
-    res.redirect("/");
+    //window.location.href = "/"
+    return res.redirect("/");
   });
 //
 

@@ -24,16 +24,22 @@
                 <form class="col s6">
                   <div class="row">
 
-                        <div class="input-field col s6">
+                        <!-- <div class="input-field col s6">
                         <label for="email">Email *</label><br>
                         <input  id="email" type="email" class="validate">
                         <div class="email-div"></div>
-                        </div>
+                        </div> -->
+
+                        <div class="input-field col s6">
+                            <label for="username">UserName *</label><br>
+                            <input  id="username" type="text" class="validate">
+                            <!-- <div class="email-div"></div>  -->
+                            </div>
 
                         <div class="input-field col s6">
                         <label for="password">Password *</label><br>
                         <input id="password" type="password" class="validate">
-                        <div class="pass-div"></div>
+                        <!-- <div class="pass-div"></div> -->
                         </div>
 
                   </div>
@@ -49,13 +55,13 @@
                 
                 var password=$("#password").val();
                 
-                var email=$("#email").val().trim();
+                var username=$("#username").val().trim();
 
                 var userObject={
                     
                     
                     
-                    email:email,
+                    username:username,
                     password:password
                 };
 
@@ -64,15 +70,15 @@
                 // });
 
                 // If we have an email and password we run the loginUser function and clear the form
-                loginUser(userObject.email, userObject.password);
+                loginUser(userObject.username, userObject.password);
                 // email.val("");
                 // password.val("");
             });
 
             // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-            function loginUser(email, password) {
+            function loginUser(username, password) {
                 $.post("/api/signin", {
-                email: email,
+                username: username,
                 password: password
                 }).then(function(data) {
                     console.log("data" + data);
