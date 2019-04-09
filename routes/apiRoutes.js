@@ -4,8 +4,8 @@ var passport = require("../config/passport");
 
 module.exports = function(app) {
   // Get all users
-  app.get("/api/users", function(req, res) {
-    db.Users.findAll({}).then(function(dbExamples) {
+  app.get("/api/sellOffers/:id", function(req, res) {
+    db.sellOffers.findAll({UserId:req.params.id}).then(function(dbExamples) {
       res.json(dbExamples);
     });
   });
@@ -42,6 +42,7 @@ module.exports = function(app) {
   app.post("/api/sellOffers", function(req, res) {
     db.sellOffers.create(req.body).then(function(dbExample) {
       res.json(dbExample);
+      console.log("post request on sell");
     });
   });
 //update sell offer - need to have a update button in sellOffer view of the specific users home page

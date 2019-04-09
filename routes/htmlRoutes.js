@@ -78,16 +78,22 @@ module.exports = function(app) {
     if(!req.user){
       res.redirect("/");
     } else{
-    res.render("index",{
-      firstName:req.user.firstName,
-      lastName:req.user.lastName,
-      email: req.user.email,
-      rating:req.user.rating,
-      id: req.user.id, 
-      address: req.user.address,
-      credits: req.user.credits,
-      numberOfTrades:req.user.numberOfTrades
-    });
+      db.sellOffers.findAll({where: {UserId:req.user.id}}).then(function(data){
+        res.render("index",{
+          firstName:req.user.firstName,
+          lastName:req.user.lastName,
+          email: req.user.email,
+          rating:req.user.rating,
+          id: req.user.id, 
+          address: req.user.address,
+          credits: req.user.credits,
+          numberOfTrades:req.user.numberOfTrades,
+          salesData:data
+        });
+      })
+
+
+    
 
   }
   })
