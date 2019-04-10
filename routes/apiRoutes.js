@@ -31,13 +31,17 @@ app.put("/api/sellOffers", function(req, res){
 });
 
   // Delete an sellOffer by id
-  app.delete("/api/sellOffer/:id", function(req, res) {
+  app.delete("/api/sellOffers/:id", function(req, res) {
     db.sellOffers.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
       res.json(dbExample);
     });
   });
 
-
+app.get("/api/sellOffers",function(req,res){
+  db.sellOffers.findAll({}).then(function(data){
+    res.json(data);
+  })
+});
 
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page - that user's home landing page.
