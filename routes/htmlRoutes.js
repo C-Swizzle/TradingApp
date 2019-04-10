@@ -11,7 +11,8 @@ module.exports = function(app) {
     // If the user already has an account send them to the members page
     if (req.user) {
       console.log("Logged in!");
-     return res.redirect("/members");
+     //return res.redirect("/members");
+     return res.redirect("/homepage");
     }
     console.log("Not logged in!");
     res.sendFile(path.join(__dirname, "../public/signup.html"));
@@ -21,7 +22,8 @@ module.exports = function(app) {
     // If the user already has an account send them to the members page
     if (req.user) {
       console.log(req.user);
-      return res.redirect("/members");
+      //return res.redirect("/members");
+      return res.redirect("/homepage");
     }
     //console.log(req.flash('error'));
     
@@ -41,10 +43,10 @@ app.get("/signup", function(req, res) {
 
 });
 
-app.get("/homepage",function(req,res){
-  if(!req.user){
-    res.redirect("/");
-  } else{
+app.get("/homepage", isAuthenticated,function(req,res){
+  // if(!req.user){
+  //   res.redirect("/");
+  // } else{
     db.sellOffers.findAll({where: {UserId:req.user.id}}).then(function(data){
       db.sellOffers.findAll({where:{buyerId:req.user.id}}).then(function(otherData){
 
@@ -64,7 +66,7 @@ app.get("/homepage",function(req,res){
       });
     })
     });
-}
+//}
 });
 
 app.get("/list-game", isAuthenticated,function(req, res) {
@@ -99,6 +101,7 @@ app.get("/list-game", isAuthenticated,function(req, res) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be 
   //redirected to the signup page
+
   app.get("/members", isAuthenticated, function(req, res) {
     //res.sendFile(path.join(__dirname, "../public/members.html"));
     res.render("example", {example: req.user});

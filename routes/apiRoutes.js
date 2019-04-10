@@ -1,6 +1,7 @@
 var db = require("../models");
 
 var passport = require("../config/passport");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
 
@@ -10,10 +11,17 @@ module.exports = function(app) {
       res.json(dbExamples);
     });
   });
+  
+  //get all sell offer names and put in names_array
+  app.get("/api/sellOffers/names", function(req, res){
+    db.sellOffers.findAll({}).then(function(offers){
+      res.json(offers);
+    })
+  })
 
   
 //create new sell offer
-  app.post("/api/sellOffers", function(req, res) {
+  app.post("/api/sellOffers", isAuthenticated, function(req, res) {
     db.sellOffers.create(req.body).then(function(dbExample) {
       res.json(dbExample);
       console.log("post request on sell");
@@ -56,7 +64,8 @@ app.get("/api/sellOffers",function(req,res){
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
     //return res.json();
-     return res.json("/members");
+     //return res.json("/members");
+     return res.json("/homepage");
   });
 //
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
