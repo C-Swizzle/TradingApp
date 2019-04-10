@@ -34,11 +34,12 @@
         <form class="col s6">
             <div class="row">
 
-                <div class="input-field col s6">
-                <label for="email">Email *</label><br>
-                <input  id="email" type="email" class="validate">
-                <div class="email-div"></div>
-                </div>
+
+                        <div class="input-field col s6">
+                            <label for="username">UserName *</label><br>
+                            <input  id="username" type="text" class="validate">
+                            <div class="username-div"></div> 
+                            </div>
 
                 <div class="input-field col s6">
                 <label for="password">Password *</label><br>
@@ -57,41 +58,46 @@
             $("#sign-in-submit").on("click",function(e){
                 e.preventDefault();
                 
-                var password=$("#password").val();
+                var pass=$("#password").val();
                 
-                var email=$("#email").val().trim();
+                var user=$("#username").val().trim();
 
                 var userObject={
                     
                     
                     
-                    email:email,
-                    password:password
+                    username:user,
+                    password:pass
                 };
 
-                // $.ajax({method:"POST",url:"/api/user_data",data:userObject}).then(function(response){
-
-                // });
-
                 // If we have an email and password we run the loginUser function and clear the form
-                loginUser(userObject.email, userObject.password);
-                // email.val("");
-                // password.val("");
+                loginUser(userObject.username, userObject.password);
+                    // user.empty();
+                    // pass.empty();
             });
 
             // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-            function loginUser(email, password) {
+            function loginUser(username, password) {
                 $.post("/api/signin", {
-                email: email,
-                password: password
+                    username: username,
+                    password: password
                 }).then(function(data) {
-                window.location.replace(data);
+                //console.log(data);
+                    window.location.replace(data);
                 // If there's an error, log the error
                 }).catch(function(err) {
-                console.log(err);
+                    console.log(err);
+                    console.log(err.status);
+                    if (err.status === 401){
+                        $(".pass-div").empty();
+                        var str=$("<p>");
+                        str.css("color","red");
+                        str.text("Username or password not valid")
+                        $(".pass-div").append(str);
+                    }
                 });
             };
-            });
+        });
 
         //});
     </script>
