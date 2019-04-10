@@ -18,7 +18,7 @@ module.exports = function(app) {
       res.json(offers);
     })
   })
-
+//
   
 //create new sell offer
   app.post("/api/sellOffers", isAuthenticated, function(req, res) {
