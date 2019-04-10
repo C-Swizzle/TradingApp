@@ -9,7 +9,7 @@
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style-signup.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
   <!-- JS -->
   <script
@@ -19,10 +19,20 @@
   <!-- <script src="js/signup.js"></script> -->
 </head>
 <body>
+    <nav class="black" role="navigation">
+            <div class="nav-wrapper container"><a id="logo-container" href="./index.html" class="brand-logo" style="font-family: Deftone-Stylus; color: whitesmoke;">The Cart & Disc</a>
+                <ul class="right hide-on-med-and-down">
+                </ul>
+            </div>
+    </nav>
+    <br><br>
 
-        <div class="container">
-                <form class="col s6">
-                  <div class="row">
+    <div class="container">
+        <div class="row">
+                <h3>Log In</h3>
+        </div>
+        <form class="col s6">
+            <div class="row">
 
 
                         <div class="input-field col s6">
@@ -31,16 +41,16 @@
                             <div class="username-div"></div> 
                             </div>
 
-                        <div class="input-field col s6">
-                        <label for="password">Password *</label><br>
-                        <input id="password" type="password" class="validate">
-                        <div class="pass-div"></div>
-                        </div>
+                <div class="input-field col s6">
+                <label for="password">Password *</label><br>
+                <input id="password" type="password" class="validate">
+                <div class="pass-div"></div>
+                </div>
 
-                  </div>
-                    <a class="waves-effect waves-light btn" id="sign-in-submit">Submit</a><br>
-                </form>
             </div>
+            <a class="waves-effect waves-light btn" id="sign-in-submit">Log In</a><br>
+        </form>
+    </div>
 
         
     <script>
