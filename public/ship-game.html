@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up - The Cart & Disc</title>
+    <title>Time to Ship! - The Cart & Disc</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -17,75 +17,93 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script src="js/signup.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
+  <script src="./js/materialize.js"></script>
+  <script src="./js/init.js"></script>  
+
 </head>
 <body>
     <nav class="black" role="navigation">
         <div class="nav-wrapper container"><a id="logo-container" href="./index.html" class="brand-logo" style="font-family: Deftone-Stylus; color: whitesmoke;">The Cart & Disc</a>
             <ul class="right hide-on-med-and-down">
+                    <a href="#">Navbar Link</a>
+                    <li><a href="./signup.html">Sign Up</a></li>
+                    <li><a href="./signin.html">Log In</a></li>
+                  </ul>
+            
+                  <ul id="nav-mobile" class="sidenav">
+                    <li><a href="./signup.html">Sign Up</a></li>
+                    <li><a href="./signin.html">Log In</a></li>
+                    <br>
+                    <li><a href="#">Recently Added</a></li>
+                    <li><a href="#">Nintendo Switch</a></li>
+                    <li><a href="#">XBOX one</a></li>
+                    <li><a href="#">PS4</a></li>
+                    <li><a href="#">Nintendo 3DS</a></li>
+                    <br>
+                    <li><a href="./list-game.html">Sell a game</a></li>
+                    <li><a href="#">Credit Balance</a></li>
+                    <li><a href="./buyer-feedback.html">Leave Feedback</a></li>
+                    <br>
+                    <li><a href="./ship-game.html">Ship Your Game</a></li>
+                  </ul>  
+                  <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                  <ul class="right hide-on-med-and-down">
             </ul>
         </div>
     </nav>
     <br><br>
     <div class="container">
         <div class="row">
-                <h3>Sign Up</h3>
+            <h3>Time to Ship</h3>
         </div>
         <div class="row">
             <form class="col s12" id="reg-form">
                 <div class="row">
-                    <div class="input-field col s6">
-                        <label for="first-name">First Name *</label><br>
-                        <input id="first-name" type="text" class="validate" required>
-
-                        <div class="first-name-div"></div>
-                    </div>
-                    <div class="input-field col s6">
-                        <label for="last-name">Last Name *</label><br>
-                        <input id="last-name" type="text" class="validate" required>
-
-                        <div class="last-name-div"></div>
+                    <div class="input-field col s12">
+                        <input id="title" type="text" class="validate" required>
+                        <label for="title" class="active" style="font-size: 17px; color: black;">Ship [gameTitle] to - " import seller name, address" </label>
+                        <div class="title-div"></div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
-                        <label for="username">Username *</label><br>
-                        <input  id="username" type="text" class="validate" required>
-                        <div class="username-div"></div>  
+                        <div class="input-field col s12">
+                            <div class="select-wrapper"><i class="mdi-navigation-arrow-drop-down active"></i>
+                                <select class="initialized">
+                                <option value="" disabled="" selected="">Was the item shipped?</option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                                </select>
+                            </div>  
+                        </div>
                     </div>
-                    <div class="input-field col s6">
-                        <label for="email">Email *</label><br>
-                        <input id="email" type="email" class="validate" required>
-                        <div class="email-div"></div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="message5" class="materialize-textarea" length="200"></textarea>
+                        <label for="message">Tracking Number</label>
                     </div>
+                </div>    
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input  id="image-link" type="url" class="validate" required>
+                        <label for="image-link" class="active">Add Image URL</label>
+                        <div class="image-link-div"></div>
+                    </div>  
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <label for="address">Address</label><br>
-                        <input  id="address" type="text" class="validate">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <label for="password">Password *</label><br>
-                        <input  id="password" type="password" class="validate" required>
-                        <div class="pass-div"></div>
-                    </div>  
-                    <div class="input-field col s6">
-                        <label for="confirm-password">Confirm password *</label><br>
-                        <input  id="confirm-password" type="password" class="validate" required>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <button class="btn btn-large btn-register waves-effect waves-light" type="submit" name="action" id="sign-up-submit">Register
+                        <button class="btn btn-med btn-register waves-effect waves-light" type="submit" name="action" id="sign-up-submit">Submit
                         <i class="material-icons right">done</i>
                         </button>
                     </div>
                 </div>
-                <small>*required field</small>
+                
             </form>
         </div>
     </div>
+    <script>$(document).ready(function() {
+            $('select').formSelect();  
+          });</script>
 </body>
 </html>
 

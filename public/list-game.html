@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Game - The Cart & Disc</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style-signup.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <!-- JS -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="js/signup.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
+  <script src="./js/materialize.js"></script>
+  <script src="./js/init.js"></script>  
+
+</head>
+<body>
+        <nav class="black" role="navigation">
+                <div class="nav-wrapper container"><a id="logo-container" href="./index.html" class="brand-logo" style="font-family: Deftone-Stylus; color: whitesmoke;">The Cart & Disc</a>
+                    <ul class="right hide-on-med-and-down">
+                            <a href="#">Navbar Link</a>
+                            <li><a href="./signup.html">Sign Up</a></li>
+                            <li><a href="./signin.html">Log In</a></li>
+                          </ul>
+                    
+                          <ul id="nav-mobile" class="sidenav">
+                            <li><a href="./signup.html">Sign Up</a></li>
+                            <li><a href="./signin.html">Log In</a></li>
+                            <br>
+                            <li><a href="#">Recently Added</a></li>
+                            <li><a href="#">Nintendo Switch</a></li>
+                            <li><a href="#">XBOX one</a></li>
+                            <li><a href="#">PS4</a></li>
+                            <li><a href="#">Nintendo 3DS</a></li>
+                            <br>
+                            <li><a href="./list-game.html">Sell a game</a></li>
+                            <li><a href="#">Credit Balance</a></li>
+                            <li><a href="./buyer-feedback.html">Leave Feedback</a></li>
+                            <br>
+                            <li><a href="./ship-game.html">Ship Your Game</a></li>
+                          </ul>  
+                          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                          <ul class="right hide-on-med-and-down">
+                    </ul>
+                </div>
+            </nav>
+    <br><br>
+    <div class="container">
+        <div class="row">
+                <h3>Add a game to trade</h3>
+        </div>
+        <div class="row">
+            <form class="col s12" id="reg-form">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="title" type="text" class="validate" required>
+                        <label for="title" class="active" style="font-size: 18px; color: black;">Title *</label>
+                        <div class="title-div"></div>
+                    </div>
+                    <div class="input-field col s6">
+                        <div class="select-wrapper"><i class="mdi-navigation-arrow-drop-down active"></i>
+                          <select class="initialized">
+                            <option value="" disabled="" selected="">Console *</option>
+                            <option value="1">PS4</option>
+                            <option value="2">Xbox One</option>
+                            <option value="3">Nintendo Switch</option>
+                            <option value="4">Xbox 360</option>
+                            <option value="5">PS3</option>
+                            <option value="6">WiiU</option>
+                            <option value="7">Nintendo 3DS</option>
+                            <option value="8">Nintendo DS</option>
+                            <option value="9">Nintendo Legacy</option>
+                            <option value="10">Playstation Legacy</option>
+                            <option value="11">Xbox Legacy</option>
+                            <option value="12">SEGA</option>
+                            <option value="13">Other</option>
+                          </select>
+                        </div>  
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <select>
+                            <option value="" disabled="" selected="">Condition *</option>
+                            <option value="1">Brand New - As in factory sealed never benn played, straight outta the loscked case at walmart </option>
+                            <option value="2">Excellent</option>
+                            <option value="3">Average</option>
+                            <option value="3">Fair/Playable</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="price" type="number" class="validate" required>
+                        <label for="price" class="active" style="font-size: 18px; color: black;">Price *</label>
+                        <div class="price-div"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="message5" class="materialize-textarea" length="200"></textarea>
+                        <label for="message">Add more details or leave a message </label>
+                        <span class="character-counter" style="float: right; font-size: 12px; height: 10px;"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input  id="image-link" type="url" class="validate" required>
+                        <label for="image-link" class="active">Add Image URL</label>
+                        <div class="image-link-div"></div>
+                    </div>  
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <button class="btn btn-med btn-register waves-effect waves-light" type="submit" name="action" id="sign-up-submit">List your game
+                        <i class="material-icons right">done</i>
+                        </button>
+                    </div>
+                </div>
+                <small>*required field</small>
+            </form>
+        </div>
+    </div>
+    <script>$(document).ready(function() {
+            $('select').formSelect();  
+          });</script>
+</body>
+</html>
+
+<!-- <script>
+    $(document).ready(function(){
+    $("#sign-up-submit").on("click",function(e){
+        e.preventDefault();
+        var firstName=$("#first-name").val().trim();
+        var lastName=$("#last-name").val().trim();
+        var username=$("#username").val().trim();
+        var address=$("#address").val().trim();
+        var password=$("#password").val();
+        var confirmPassword=$("#confirm-password").val();
+        var email=$("#email").val().trim();
+
+        if(password.length<6){
+            $(".pass-div").empty();
+            var str=$("<p>");
+            str.css("color","red");
+            str.text("Passwords less than 6 characters are not allowed!")
+            $(".pass-div").append(str);
+        }else if(firstName.length<2||firstName.length>50){
+                $(".first-name-div").empty();
+                var str=$("<p>");
+            str.css("color","red");
+            str.text("First name must be between 2 and 50 characters")
+            $(".first-name-div").append(str);
+        }else if(lastName.length<2||lastName.length>50){
+                $(".last-name-div").empty();
+            var str=$("<p>");
+            str.css("color","red");
+            str.text("Last name must be between 2 and 50 characters")
+            $(".last-name-div").append(str);
+        }else if(username.length<2||username.length>20){
+                $(".username-div").empty();
+                var str=$("<p>");
+            str.css("color","red");
+            str.text("Username must be between 2 and 20 characters!")
+            $(".username-div").append(str);
+        }else if(email.length<2||email.length>100){
+                $(".email-div").empty();
+                var str=$("<p>");
+            str.css("color","red");
+            str.text("email must be between 2 and 100 characters!")
+            $(".email-div").append(str);
+        }else if(password!==confirmPassword){
+            $(".pass-div").empty();
+            var str=$("<p>");
+            str.css("color","red");
+            str.text("Passwords do not match!")
+            $(".pass-div").append(str);
+        } else{
+            $(".pass-div").empty();
+            $(".username-div").empty();
+            $(".last-name-div").empty();
+            $(".first-name-div").empty();
+
+            if(address===""){
+                address=null;
+            }
+            var userObject={
+                firstName:firstName,
+                lastName:lastName,
+                username:username,
+                address:address,
+                email:email,
+                password:password
+            }
+            console.log(userObject);
+            $.ajax({method:"POST",url:"/api/users",data:userObject}).then(function(response){
+
+            });
+        }
+
+        console.log(firstName);
+    })
+    });
+</script> -->
