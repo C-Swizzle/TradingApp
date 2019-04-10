@@ -123,9 +123,6 @@ app.get("/api/user_data", function(req, res) {
   }
 });
 };
-<<<<<<< HEAD
-=======
 // db.Users.create({username:"cmack",password:"password",credits:10,email:"something@gmail.com",firstName:"chris",lastName:"mack"}).then(function(){
 //   console.log("did it");
 // });
->>>>>>> 1ce4f401d3478eeaeb73b9214afca64daa3dc1e7

@@ -8,14 +8,13 @@
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style-search.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
   <nav class="black" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="./index.html" class="brand-logo" style="font-family: Deftone-Stylus; color: whitesmoke;">The Cart & Disc</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="./index.html" class="brand-logo" style="font-family: Deftone-Stylus; color: whitesmoke;">The Cart & Disc</a>
       <ul class="right hide-on-med-and-down">
-        <!-- <a href="#">Navbar Link</a> -->
+        <a href="#">Navbar Link</a>
         <li><a href="./signup.html">Sign Up</a></li>
         <li><a href="./signin.html">Log In</a></li>
       </ul>
@@ -41,8 +40,8 @@
   </nav>
   <div class="nav-wrapper">
         <form>
-          <div class="input-field">
-            <input id="search" type="search" required>
+          <div class="input-field"> 
+            <input id="search iBar" type="search" required>
             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
             <i class="material-icons">close</i>
           </div>
@@ -51,12 +50,40 @@
   <div class="section no-pad-bot" id="index-banner-img">
     <div class="container">
       <br><br>
-      <h1 class="header center index-body-title">The Cart & Disc</h1>
+      <h3 class="header center index-body-title">Available Games</h3>
       <div class="row center">
-        <h5 style ="color: white" class="header col s12 light">Trading good old fashioned cartridge and disc based games. Trade your games with others using credits.  </h5>
-      </div>
-      <div class="row center">
-        <a href="./signup.html" id="download-button" class="btn-large waves-effect waves-light start-button">Sign up</a>
+        
+      <div class="row center" style ="color: white">
+            <table>
+                    <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th>Item Name</th>
+                          <th>Item Price</th>
+
+                      </tr>
+                    </thead>
+            
+                    <tbody>
+                      <tr>
+                        <td>Alvin</td>
+                        <td>Eclair</td>
+                        <td>$0.87</td>
+                      </tr>
+                      <tr>
+                        <td>Alan</td>
+                        <td>Jellybean</td>
+                        <td>$3.76</td>
+                      </tr>
+                      <tr>
+                        <td>Jonathan</td>
+                        <td>Lollipop</td>
+                        <td>$7.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                        
+            
       </div>
       <br><br>
 
@@ -65,39 +92,7 @@
 
 
   <div class="container">
-    <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">library_add</i></h2>
-            <h5 class="center">Add a game to trade</h5>
-
-            <p class="light">Tell us what game you want to trade out. Add information about the condition of your game. Set a price. Ship it to the buyer when it sells. Receive your credits upon buyer feedback.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">group_add</i></h2>
-            <h5 class="center">Invite people you know</h5>
-
-            <p class="light">Invite and create a group of friends to trade with. Use our platform to formalize and document your trades. Or jump in with both feet and trade in the greater public pool from day 1. </p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">search</i></h2>
-            <h5 class="center">Find a game, pay with credits</h5>
-
-            <p class="light">Search our inventory, request a game, use credits to pay for it. Watch your mailbox like a hawk. </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
+   
     <br><br>
   </div>
 
@@ -142,6 +137,34 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script>
+      $(document).ready(function() {
+
+var input = document.getElementById("iBar");
+
+input.addEventListener("keyup", function(event) {
+  event.preventDefault();
+  //listens for return key
+  if (event.keyCode === 13 && input.value!=="") {
+    mainFunction(input.value);
+  };
+});
+
+function mainFunction(value){
+  //UPC code validation
+  if (isNaN(value) || value.length !=12) {
+    //text = "Input not valid";
+    document.getElementById("iBar").value=""
+    document.getElementById("iBar").value="Requires a 12-digit UPC code...try again"
+    setTimeout(function(){document.getElementById("iBar").value=""}, 1750);
+  } else {
+    //push UPC search to history and add UPC to ajax url to be called
+    var upc = document.getElementById("iBar").value;
+    var proxy = "https://cors-anywhere.herokuapp.com/";
+    baseUrl = proxy + "https://api.upcitemdb.com/prod/trial/lookup?upc="+ upc;
+  }
+  console.log(res);
+  </script>
 
   </body>
 </html>
