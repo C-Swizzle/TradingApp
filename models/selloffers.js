@@ -17,6 +17,12 @@ module.exports = function(sequelize, DataTypes) {
                 min: 0
             }
         },
+        imageUrl:{
+            type:DataTypes.STRING
+        },
+        consoleType:{
+            type:DataTypes.STRING
+        },
         description:DataTypes.TEXT,
         condition:DataTypes.STRING,
         inTransaction: {
@@ -31,7 +37,7 @@ module.exports = function(sequelize, DataTypes) {
             type:DataTypes.DATE,
             defaultValue:null
         },
-        buyerID: {
+        buyerId: {
             type:DataTypes.INTEGER,
             defaultValue:null
         },
