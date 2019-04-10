@@ -50,7 +50,11 @@ app.get("/api/sellOffers",function(req,res){
     res.json(data);
   })
 });
-
+app.get("/api/sellOffers/:name",function(req,res){
+  db.sellOffers.findAll({where:{name:req.params.name}}).then(function(data){
+    res.json(data);
+  })
+});
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page - that user's home landing page.
   // Otherwise the user will be sent an error
