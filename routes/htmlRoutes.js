@@ -41,9 +41,27 @@ app.get("/signup", function(req, res) {
 
 });
 
-  // app.get("/homepage",function(req,res){
-  //   res.render("index",{credits:5,rating:4.4,firstName:"chris",lastName:"m"});
-  // })
+app.get("/homepage",function(req,res){
+  if(!req.user){
+    res.redirect("/");
+  } else{
+    db.sellOffers.findAll({where: {UserId:req.user.id}}).then(function(data){
+      res.render("index",{
+        firstName:req.user.firstName,
+        lastName:req.user.lastName,
+        email: req.user.email,
+        rating:req.user.rating,
+        id: req.user.id, 
+        address: req.user.address,
+        credits: req.user.credits,
+        numberOfTrades:req.user.numberOfTrades,
+        salesData:data
+      });
+    });
+}
+});
+
+  
   // Load example page and pass in an example by id
   // app.get("/example/:id", function(req, res) {
   //   db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
