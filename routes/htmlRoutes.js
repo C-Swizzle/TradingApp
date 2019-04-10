@@ -48,6 +48,8 @@ app.get("/homepage", isAuthenticated,function(req,res){
   //   res.redirect("/");
   // } else{
     db.sellOffers.findAll({where: {UserId:req.user.id}}).then(function(data){
+      db.sellOffers.findAll({where:{buyerId:req.user.id}}).then(function(otherData){
+
       res.render("index",{
         firstName:req.user.firstName,
         lastName:req.user.lastName,
@@ -57,13 +59,36 @@ app.get("/homepage", isAuthenticated,function(req,res){
         address: req.user.address,
         credits: req.user.credits,
         numberOfTrades:req.user.numberOfTrades,
-        salesData:data
+        numberOfPositiveRatings:req.user.numberOfPositiveRatings,
+        numberOfNegativeRatings:req.user.numberOfNegativeRatings,
+        salesData:data,
+        buyData:otherData
       });
+    })
     });
 //}
 });
 
-  
+app.get("/list-game", isAuthenticated,function(req, res) {
+  // If the user already has an account send them to the members page
+  // if (req.user) {
+  //   console.log(req.user);
+  //   return res.redirect("/members");
+  // }
+  res.render("add-game",{
+    firstName:req.user.firstName,
+    lastName:req.user.lastName,
+    email: req.user.email,
+    rating:req.user.rating,
+    id: req.user.id, 
+    address: req.user.address,
+    credits: req.user.credits,
+    numberOfTrades:req.user.numberOfTrades,
+    numberOfPositiveRatings:req.user.numberOfPositiveRatings,
+    numberOfNegativeRatings:req.user.numberOfNegativeRatings
+  })
+
+});
   // Load example page and pass in an example by id
   // app.get("/example/:id", function(req, res) {
   //   db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
