@@ -1,0 +1,26 @@
+.icon-block {
+    padding: 0 15px;
+  }
+  .icon-block .material-icons {
+      font-size: inherit;
+  }
+  .start-button{
+    background: #01ABAA;
+  }
+  .index-body-title{
+    color: whitesmoke; 
+    position: relative;
+    top: -60px;
+  }
+  .footer-color{
+  background-color:  #FEDC3D;
+  color: black;
+  }
+  @font-face {
+    font-family: 'Deftone-Stylus' ;
+    src: url(' ../resources/fonts/DEFTONE.ttf') format('truetype');
+  }
+#index-banner-img{
+    background-color: #FEA680;
+    opacity: 0.85;
+    background-repeat: 100%;
