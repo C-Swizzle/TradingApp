@@ -42,6 +42,11 @@
           </div>
         </form>
   </div>
+  <div class="container">
+    <div id="search-results" style="display:none">
+      Search Results: 
+
+    </div></div>
   <div class="container"id="current"><div class="container"><div class="h1">Your Current Offers:</div></div>
   
   
@@ -174,7 +179,31 @@ $(document).ready(function(){
   $('form').keypress(function(event) { 
     if (event.keyCode===13){
       event.preventDefault();
-      
+      var searchQuery=$("#search").val().trim();
+      console.log(searchQuery);
+      $.ajax({method:"GET",url:"/api/sellOffers/query/"+searchQuery}).then(function(response){
+        console.log(response);
+        $("#search-results").css("display","inherit");
+        for(var i=0;i<response.length;i++){
+          var card =`<div class="row">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Name: ${response[i].name}</span>
+              <p>Price: ${response[i].price}</p>
+              <p>Condition: ${response[i].condition}</p>
+              <p>Console: ${response[i].consoleType}</p>
+        
+            </div>
+            <div class="card-action">
+              <a href="#" class="buy-button" data-id=${response[i].id}>Buy this Game</a>
+            </div>
+          </div>
+        </div>
+      </div>`;
+      $("#search-results").append(card);
+        }
+      })
     }
   
 }); 
@@ -188,7 +217,15 @@ $(document).on("click",".del-button",function(){
     })
   })  
 //get the sell offers from the user
-
+$(document).on("click",".buy-button",function(){
+  console.log("hit buy")
+    console.log(this)
+    var idToBuy=$(this).data("id");
+    console.log(idToBuy);
+    $.ajax({method:"PUT",url:"/api/sellOffers/buy",data:{id:idToBuy}}).then(function(response){
+      console.log(response);
+    })
+  })  
 
 });
 

@@ -2,11 +2,11 @@ var db = require("../models");
 
 var passport = require("../config/passport");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
-
+var dateTime=require("../config/middleware/date-time.js");
 module.exports = function(app) {
 
   // Get all users
-  app.get("/api/sellOffers/:id", function(req, res) {
+  app.get("/api/sellOffers/user/:id", function(req, res) {
     db.sellOffers.findAll({UserId:req.params.id}).then(function(dbExamples) {
       res.json(dbExamples);
     });
@@ -28,7 +28,7 @@ module.exports = function(app) {
     });
   });
 //update sell offer - need to have a update button in sellOffer view of the specific users home page
-app.put("/api/sellOffers", function(req, res){
+app.put("/api/sellOffers", isAuthenticated,function(req, res){
     db.sellOffers.update(req.body, {
       where: {
         id: req.body.id
@@ -38,8 +38,36 @@ app.put("/api/sellOffers", function(req, res){
     });
 });
 
+//buy request
+app.put("/api/sellOffers/buy", isAuthenticated,function(req, res){
+  console.log("userid:"+req.user.id);
+  console.log("buyid:"+req.body.id);
+  db.Users.findOne({where:{id:req.user.id}}).then(function(userData){
+    db.sellOffers.findOne({where:{id:req.body.id}}).then(function(itemData){
+      console.log(userData.dataValues);
+      console.log(itemData.dataValues);
+      var buyerCredits=Number(userData.dataValues.credits);
+      var itemCost=Number(itemData.dataValues.price);
+      var buyerId=Number(userData.dataValues.id);
+      var sellerId=Number(itemData.dataValues.UserId);
+      var itemId=itemData.dataValues.id;
+      if(buyerCredits<itemCost){
+        res.json("not enough credits");
+        console.log("not enough");
+      } else if(buyerId===sellerId){
+        res.json("you cannot buy from yourself!")
+      } else{
+        db.sellOffers.update({inTransaction:1,buyerId:buyerId,transactionStartedAtTime:dateTime()},{where:{id:itemId}}).then(function(response){
+          res.json("success");
+        })
+      }
+    })
+  })
+
+});
+
   // Delete an sellOffer by id
-  app.delete("/api/sellOffers/:id", function(req, res) {
+  app.delete("/api/sellOffers/:id",isAuthenticated, function(req, res) {
     db.sellOffers.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
       res.json(dbExample);
     });
@@ -50,7 +78,7 @@ app.get("/api/sellOffers",function(req,res){
     res.json(data);
   })
 });
-app.get("/api/sellOffers/:name",function(req,res){
+app.get("/api/sellOffers/query/:name",function(req,res){
   db.sellOffers.findAll({where:{name:req.params.name}}).then(function(data){
     res.json(data);
   })
