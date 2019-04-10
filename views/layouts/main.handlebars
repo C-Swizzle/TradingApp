@@ -23,5 +23,18 @@
     {{{body}}}
  
 </body>
+<script>
+  $("#logout").on("click", function(event){
+    event.preventDefault();
+    $.get("/logout", function(err, resp){
+      if(err){
+        console.error(err);
+      }
+      console.log(resp);
+      console.log("Logging out")
+      window.location.replace("/");
+    });
+  });
 
+</script>
 </html>

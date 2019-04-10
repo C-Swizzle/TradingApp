@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add Game - The Cart & Disc</title>
-
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style-signup.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-  <!-- JS -->
-  <script
+ <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
@@ -21,9 +11,8 @@
   <script src="./js/materialize.js"></script>
   <script src="./js/init.js"></script>  
 
-</head>
-<body>
-        <nav class="black" role="navigation">
+
+<nav class="black" role="navigation">
                 <div class="nav-wrapper container"><a id="logo-container" href="./index.html" class="brand-logo" style="font-family: Deftone-Stylus; color: whitesmoke;">The Cart & Disc</a>
                     <ul class="right hide-on-med-and-down">
                             <a href="#">Navbar Link</a>
@@ -119,7 +108,8 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <button class="btn btn-med btn-register waves-effect waves-light" type="submit" name="action" id="sign-up-submit">List your game
+                        <button class="btn btn-med btn-register waves-effect waves-light" data-id={{id}}
+                        type="submit" name="action" id="sign-up-submit">List your game
                         <i class="material-icons right">done</i>
                         </button>
                     </div>
@@ -131,10 +121,7 @@
     <script>$(document).ready(function() {
             $('select').formSelect();  
           });</script>
-</body>
-</html>
-
-<script>
+          <script>
     $(document).ready(function(){
     $("#sign-up-submit").on("click",function(e){
         e.preventDefault();
@@ -147,11 +134,13 @@
         var price=Number($("#price").val());
         var description = $("#message5").val().trim();
         var imgURL=$("#image-link").val().trim();
-        var data={
+        var UserId=$(this).data("id");
+        var dataObj={
             price:price,
             name:title,
+            UserId:UserId
         }
-        $.ajax({method:"POST",url:"/api/sellOffers",data:data}).then(function(response){
+        $.ajax({method:"POST",url:"/api/sellOffers",data:dataObj}).then(function(response){
 
         })
     })

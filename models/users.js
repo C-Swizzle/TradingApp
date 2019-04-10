@@ -65,6 +65,14 @@ module.exports = function(sequelize, DataTypes) {
     rating: {
       type:DataTypes.DECIMAL
     },
+    numberOfPositiveRatings:{
+      type:DataTypes.DECIMAL,
+      defaultValue:0
+    },
+    numberOfNegativeRatings:{
+      type:DataTypes.DECIMAL,
+      defaultValue:0
+    },
     numberOfTrades:{
       type:DataTypes.INTEGER,
       defaultValue:0,
