@@ -181,10 +181,10 @@ $(document).ready(function(){
 $(document).on("click",".del-button",function(){
   console.log("hit delete")
     console.log(this)
-    var idToDel=$(this).attr("data-id");
+    var idToDel=$(this).data("id");
     console.log(idToDel);
-    $.ajax({method:"DELETE",url:"/api/sellOffer/"+idToDel}).then(function(response){
-
+    $.ajax({method:"DELETE",url:"/api/sellOffers/"+idToDel}).then(function(response){
+      window.location.reload();
     })
   })  
 //get the sell offers from the user
