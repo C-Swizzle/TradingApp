@@ -57,8 +57,12 @@ app.put("/api/sellOffers/buy", isAuthenticated,function(req, res){
       } else if(buyerId===sellerId){
         res.json("you cannot buy from yourself!")
       } else{
-        db.sellOffers.update({inTransaction:1,buyerId:buyerId,transactionStartedAtTime:dateTime()},{where:{id:itemId}}).then(function(response){
-          res.json("success");
+        db.sellOffers.update({inTransaction:1,buyerId:buyerId,transactionStartedAtTime:dateTime(),purgatoryCredits:itemCost.toString()},{where:{id:itemId}}).then(function(response){
+          db.Users.update({credits:(buyerCredits-itemCost).toString()},{where:{id:buyerId}}).then(function(response){
+            res.json("success");
+            res.redirect("/random-page");
+            
+          });
         })
       }
     })
@@ -79,7 +83,7 @@ app.get("/api/sellOffers",function(req,res){
   })
 });
 app.get("/api/sellOffers/query/:name",function(req,res){
-  db.sellOffers.findAll({where:{name:req.params.name}}).then(function(data){
+  db.sellOffers.findAll({where:{name:req.params.name,inTransaction:0,buyerId:null}}).then(function(data){
     res.json(data);
   })
 });
