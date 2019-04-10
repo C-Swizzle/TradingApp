@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>The Cart & Disc</title>
+    <title>Leave Feedback - The Cart & Disc</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -17,74 +17,108 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script src="js/signup.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
+  <script src="./js/materialize.js"></script>
+  <script src="./js/init.js"></script>  
+
 </head>
 <body>
     <nav class="black" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="./index.html" class="brand-logo" style="font-family: Deftone-Stylus; color: whitesmoke;">The Cart & Disc</a>
-            <ul class="right hide-on-med-and-down">
-            </ul>
-        </div>
+            <div class="nav-wrapper container"><a id="logo-container" href="./index.html" class="brand-logo" style="font-family: Deftone-Stylus; color: whitesmoke;">The Cart & Disc</a>
+                <ul class="right hide-on-med-and-down">
+                        <a href="#">Navbar Link</a>
+                        <li><a href="./signup.html">Sign Up</a></li>
+                        <li><a href="./signin.html">Log In</a></li>
+                        </ul>
+                
+                        <ul id="nav-mobile" class="sidenav">
+                        <li><a href="./signup.html">Sign Up</a></li>
+                        <li><a href="./signin.html">Log In</a></li>
+                        <br>
+                        <li><a href="#">Recently Added</a></li>
+                        <li><a href="#">Nintendo Switch</a></li>
+                        <li><a href="#">XBOX one</a></li>
+                        <li><a href="#">PS4</a></li>
+                        <li><a href="#">Nintendo 3DS</a></li>
+                        <br>
+                        <li><a href="./list-game.html">Sell a game</a></li>
+                        <li><a href="#">Credit Balance</a></li>
+                        <li><a href="./buyer-feedback.html">Leave Feedback</a></li>
+                        <br>
+                        <li><a href="./ship-game.html">Ship Your Game</a></li>
+                        </ul>  
+                        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                        <ul class="right hide-on-med-and-down">
+                </ul>
+            </div>
     </nav>
     <br><br>
     <div class="container">
         <div class="row">
+            <h3>Leave Feedback</h3>
+        </div>
+        <div class="row">
             <form class="col s12" id="reg-form">
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input id="first_name" type="text" class="validate" required>
-                        <label for="first_name" class="active">First Name *</label>
-                        <div class="first-name-div"></div>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate" required>
-                        <label for="last_name" class="active">Last Name *</label>
-                        <div class="last-name-div"></div>
+                    <div class="input-field col s12">
+                        <input id="title" type="text" class="validate" required>
+                        <label for="title" class="active" style="font-size: 17px; color: black;">Trade info - " import seller, game, price" </label>
+                        <div class="title-div"></div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input  id="username" type="text" class="validate" required>
-                        <label for="username" class="active">Username *</label>
-                        <div class="username-div"></div>  
+                        <div class="input-field col s12">
+                            <div class="select-wrapper"><i class="mdi-navigation-arrow-drop-down active"></i>
+                                <select class="initialized">
+                                <option value="" disabled="" selected="">Was the item received?</option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                                <option value="3">Yes item received, but there is a problem.</option>
+                                </select>
+                            </div>  
+                        </div>
                     </div>
-                    <div class="input-field col s6">
-                        <input id="email" type="email" class="validate" required>
-                        <label for="email" class="active">Email *</label>
-                        <div class="email-div"></div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select>
+                            <option value="" disabled="" selected="">Rate this transaction</option>
+                            <option value="1">Positive - trade as expected</option>
+                            <option value="2">Neutral - trade acceptable with minor issue </option>
+                            <option value="3">Negative - poor trade experience</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input  id="address" type="text" class="validate">
-                        <label for="address" class="active">Address</label>
+                        <textarea id="message5" class="materialize-textarea" length="200"></textarea>
+                        <label for="message">Add comments and or trade details </label>
                     </div>
-                </div>
+                </div>    
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input  id="password" type="password" class="validate" required>
-                        <label for="password" class="active">Password *</label>
-                        <div class="pass-div"></div>
+                    <div class="input-field col s12">
+                        <input  id="image-link" type="url" class="validate" required>
+                        <label for="image-link" class="active">Add Image URL</label>
+                        <div class="image-link-div"></div>
                     </div>  
-                    <div class="input-field col s6">
-                        <input  id="confirm-password" type="password" class="validate" required>
-                        <label for="confirm-password" class="active">Confirm password *</label>
-                    </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
-                        <button class="btn btn-large btn-register waves-effect waves-light" type="submit" name="action" id="sign-up-submit">Register
+                    <div class="input-field col s12">
+                        <button class="btn btn-med btn-register waves-effect waves-light" type="submit" name="action" id="sign-up-submit">Submit feedback
                         <i class="material-icons right">done</i>
                         </button>
                     </div>
                 </div>
-                <small>*required field</small>
+                
             </form>
         </div>
     </div>
+    <script>$(document).ready(function() {
+            $('select').formSelect();  
+          });</script>
 </body>
 </html>
 
-<script>
+<!-- <script>
     $(document).ready(function(){
     $("#sign-up-submit").on("click",function(e){
         e.preventDefault();
@@ -158,4 +192,4 @@
         console.log(firstName);
     })
     });
-</script>
+</script> -->
