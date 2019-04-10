@@ -68,7 +68,7 @@ app.put("/api/sellOffers", function(req, res){
       email: req.body.email,
       password: req.body.password,
       address: req.body.address,
-      credits: 20
+      credits: 20,
       
     }).then(function() {
       return res.json("/signin");
