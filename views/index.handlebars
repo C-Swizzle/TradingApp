@@ -198,6 +198,7 @@ $(document).ready(function(){
             <div class="card-action">
               <a href="#" class="buy-button" data-id=${response[i].id}>Buy this Game</a>
             </div>
+            <div id=${response[i].id}></div>
           </div>
         </div>
       </div>`;
@@ -224,7 +225,13 @@ $(document).on("click",".buy-button",function(){
     console.log(idToBuy);
     $.ajax({method:"PUT",url:"/api/sellOffers/buy",data:{id:idToBuy}}).then(function(response){
       console.log(response);
-      window.location.reload();
+      $("#"+idToBuy).append(response);
+      if(response==="Success!"){
+        $("#"+idToBuy).css("color","green");
+      } else{
+        $("#"+idToBuy).css("color","red");
+
+      }
     })
   })  
 

@@ -52,15 +52,14 @@ app.put("/api/sellOffers/buy", isAuthenticated,function(req, res){
       var sellerId=Number(itemData.dataValues.UserId);
       var itemId=itemData.dataValues.id;
       if(buyerCredits<itemCost){
-        res.json("not enough credits");
-        console.log("not enough");
+       return res.json("Not enough credits");
       } else if(buyerId===sellerId){
-        res.json("you cannot buy from yourself!")
+       return res.json("You cannot buy from yourself!")
       } else{
         db.sellOffers.update({inTransaction:1,buyerId:buyerId,transactionStartedAtTime:dateTime(),purgatoryCredits:itemCost.toString()},{where:{id:itemId}}).then(function(response){
           db.Users.update({credits:(buyerCredits-itemCost).toString()},{where:{id:buyerId}}).then(function(response){
-            res.json("success");
-            res.redirect("/random-page");
+            return res.json("Success!");
+            // res.redirect("/random-page");
             
           });
         })
