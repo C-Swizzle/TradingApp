@@ -14,18 +14,27 @@ module.exports = function(app) {
   });
   
   //get all sell offer names and put in names_array
-  app.get("/api/sellOffers/names", function(req, res){
+  app.get("/api/sellOffers/typeahead/names", function(req, res){
     db.sellOffers.findAll({}).then(function(offers){
-      res.json(offers);
+      //res.json(offers);
+      //console.log(offers.length);
+      var names_array = [];
+      for(var i = 0; i< offers.length; i++){
+        names_array.push(offers[i].name);
+      }
+      res.send(names_array);
+      console.log(names_array);
     })
   })
-
+//
   
 //create new sell offer
   app.post("/api/sellOffers", isAuthenticated, function(req, res) {
-    db.sellOffers.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-      console.log("post request on sell");
+   db.sellOffers.create(req.body).then(function(dbExample) {
+
+        return res.json("/homepage");
+       //res.json(dbExample);
+      // console.log("post request on sell");
     });
   });
 //update sell offer - need to have a update button in sellOffer view of the specific users home page
