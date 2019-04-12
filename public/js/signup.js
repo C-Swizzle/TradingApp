@@ -40,6 +40,12 @@ $("#sign-up-submit").on("click",function(e){
         str.css("color","red");
         str.text("email must be between 2 and 100 characters!")
         $(".email-div").append(str);
+    }else if(!/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test(email)){
+        $(".email-div").empty();
+        var str=$("<p>");
+        str.css("color","red");
+        str.text("not a valid email!")
+        $(".email-div").append(str);
     }else if(password!==confirmPassword){
         $(".pass-div").empty();
         var str=$("<p>");

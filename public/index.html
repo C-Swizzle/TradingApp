@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+ 
 </head>
 <body>
   <nav class="black" role="navigation">
@@ -42,7 +44,7 @@
   <div class="nav-wrapper">
         <form>
           <div class="input-field">
-            <input id="search" type="search" required>
+            <input class = "typeahead" id="search" type="search" required>
             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
             <i class="material-icons">close</i>
           </div>
@@ -143,6 +145,31 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script src="js/search.js"></script>
-
+  <!-- <script src="../bower_components/jquery/dist/jquery.js"></script> -->
+  <!-- <script src="../bower_components/typeahead.js/dist/typeahead.bundle.js"></script> -->
+  <script src="js/typeahead.js"></script>
+ 
+<script>
+  $(document).ready(function(){
+    $('#search .typeahead').typeahead(
+      {
+      hint: true,
+      highlight: true,
+      minLength: 1
+      },
+      {
+      source: function (query, process) {
+          return $.getJSON(
+              "/api/sellOffers/typeahead/names",
+              { query: query },
+              function (data) {
+                console.log(data);
+                console.log(process);
+                  return process(data);
+              });
+            }
+          });
+        });
+</script>
   </body>
 </html>

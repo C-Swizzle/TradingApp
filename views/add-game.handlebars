@@ -10,8 +10,42 @@
   <script src="./js/materialize.js"></script>
   <script src="./js/init.js"></script>  
 
-
 <nav class="black" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo"
+        style="font-family: Deftone-Stylus; color: whitesmoke;">The Cart & Disc</a>
+      <ul class="right hide-on-med-and-down">
+        {{!-- {{!-- <li><a href="./signup.html">Sign Up</a></li> --!}} --}}
+        <div class="valign-wrapper">
+        <li>Welcome {{firstName}} {{lastName}}!</li>
+        <li><a href="#"><i class="fa fa-fw fa-thumbs-up" ></i> {{numberOfPositiveRatings}}</a></li> 
+        <li><a href="#"><i class="fa fa-fw fa-thumbs-down" ></i> {{numberOfNegativeRatings}}</a></li> 
+        <li>
+          <a class="waves-effect waves-light btn-small" href="/list-game">List a game</a>
+
+        </li>
+        <li>
+          <a class="waves-effect waves-light btn-small" href="/logout">Logout</a>
+
+        </li>
+
+        <li><a href="#">Credits: {{credits}} </a></li> 
+        </div>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="./signup.html">Sign Up</a></li>
+        <li><a href="#">Log In</a></li>
+        <br>
+        <li><a href="#">Recently Added</a></li>
+        <li><a href="#">Nintendo Switch</a></li>
+        <li><a href="#">XBOX one</a></li>
+        <li><a href="#">PS4</a></li>
+        <li><a href="#">Nintendo 3DS</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+{{!-- <nav class="black" role="navigation">
                 <div class="nav-wrapper container"><a id="logo-container" href="./index.html" class="brand-logo" style="font-family: Deftone-Stylus; color: whitesmoke;">The Cart & Disc</a>
                     <ul class="right hide-on-med-and-down">
                             <a href="#">Navbar Link</a>
@@ -39,7 +73,7 @@
                           <ul class="right hide-on-med-and-down">
                     </ul>
                 </div>
-            </nav>
+            </nav> --}}
     <br><br>
     <div class="container">
         <div class="row">
@@ -137,10 +171,14 @@
         var dataObj={
             price:price,
             name:title,
+            consoleType: gameconsole,
+            condition:condition,
+            description:description,
+            imageUrl: imgURL,
             UserId:UserId
         }
         $.ajax({method:"POST",url:"/api/sellOffers",data:dataObj}).then(function(response){
-
+            window.location.replace(response);
         })
     })
     });

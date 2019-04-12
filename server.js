@@ -6,6 +6,7 @@ var exphbs = require("express-handlebars");
 var passport = require('passport')
 var session = require('express-session')
 var bodyParser = require('body-parser')
+var path = require("path")
 
 var db = require("./models");
 
@@ -15,7 +16,14 @@ var PORT = process.env.PORT || 3000;
 // Middleware
 // app.use(express.urlencoded({ extended: false }));
 // app.use(express.json());
+
+//app.use(express.static(_dirname + "./public"));
+//app.use("/js", express.static(__dirname + '/js'));
+//app.use("/images", express.static(__dirname + '/images'));
+
 app.use(express.static("public"));
+//app.use(express.static(path.join(__dirname, "public")));
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -43,7 +51,7 @@ require("./routes/apiRoutes")(app, passport);
 require("./routes/htmlRoutes")(app, passport);
 //var authRoute = require('./routes/auth.js')(app);
 
-var syncOptions = { force: true};
+var syncOptions = { force: false};
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
