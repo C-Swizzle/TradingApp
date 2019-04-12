@@ -55,16 +55,33 @@ app.put("/api/sellOffers/buy", isAuthenticated,function(req, res){
        return res.json("Not enough credits");
       } else if(buyerId===sellerId){
        return res.json("You cannot buy from yourself!")
-      } else{
-        db.sellOffers.update({inTransaction:1,buyerId:buyerId,transactionStartedAtTime:dateTime(),purgatoryCredits:itemCost.toString()},{where:{id:itemId}}).then(function(response){
-          db.Users.update({credits:(buyerCredits-itemCost).toString()},{where:{id:buyerId}}).then(function(response){
-            return res.json("Success!");
-            // res.redirect("/random-page");
-            
+      } else if(itemData.dataValues.inTransaction||itemData.dataValues.hasBeenShippedBool||itemData.dataValues.tradeCompleteBool){
+        return res.json("game is already in transaction")
+      }else{
+        db.sellOffers.update({inTransaction:1,
+          buyerId:buyerId,
+          transactionStartedAtTime:dateTime(),
+          purgatoryCredits:itemCost.toString()
+        },
+        {where:{id:itemId}
+      }).then(function(response){
+          db.Users.update({
+            credits:(buyerCredits-itemCost).toString()
+          },{where:{id:buyerId}
+        }).then(function(response){
+            res.json("Success!");
+            // res.redirect("/homepage");
+            db.Users.findOne({where:{id:itemData.dataValues.UserId}}).then(function(sellerData){
+              var sellerCredits=sellerData.credits;
+              db.Users.update({credits:(Number(sellerCredits)+Number(itemCost)).toString()},{where:{id:itemData.dataValues.UserId}}).then(function(response){
+
+              })
+            });
+            })
           });
-        })
+        }
       }
-    })
+    )
   })
 
 });
