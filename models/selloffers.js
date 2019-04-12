@@ -29,17 +29,17 @@ module.exports = function(sequelize, DataTypes) {
             type:DataTypes.BOOLEAN,
             defaultValue:false
         },
-        soldBoolean:{
-            type:DataTypes.BOOLEAN,
-            defaultValue:false
-        },
-        soldAtTime:{
+        transactionStartedAtTime:{
             type:DataTypes.DATE,
             defaultValue:null
         },
         buyerId: {
             type:DataTypes.INTEGER,
             defaultValue:null
+        },
+        purgatoryCredits:{
+            type:DataTypes.DECIMAL,
+            min:0
         },
         hasBeenShippedBool: {
             type:DataTypes.BOOLEAN,
