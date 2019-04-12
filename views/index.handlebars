@@ -17,6 +17,7 @@
         </li>
 
         <li><a href="#">Credits: {{credits}} </a></li> 
+        <li><a class="waves-effect waves-light btn-small" data-id={{id}} id="add-credit">Add Credits</a></li>
         </div>
       </ul>
       
@@ -291,6 +292,15 @@ $(document).on("click",".del-button",function(){
     console.log(idToDel);
     $.ajax({method:"DELETE",url:"/api/sellOffers/"+idToDel}).then(function(response){
       window.location.reload();
+    })
+  });
+  $(document).on("click","#add-credit",function(){
+    
+    var id=$(this).data("id");
+    var url="/api/users/add-credit/"+id;
+    
+    $.ajax({method:"PUT",url:url,data:{}}).then(function(response){
+
     })
   })  
 //get the sell offers from the user
