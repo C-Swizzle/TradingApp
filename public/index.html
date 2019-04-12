@@ -10,6 +10,8 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+ 
 </head>
 <body>
   <nav class="black" role="navigation">
@@ -135,6 +137,31 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script src="js/search.js"></script>
-
+  <!-- <script src="../bower_components/jquery/dist/jquery.js"></script> -->
+  <!-- <script src="../bower_components/typeahead.js/dist/typeahead.bundle.js"></script> -->
+  <script src="js/typeahead.js"></script>
+ 
+<script>
+  $(document).ready(function(){
+    $('#search .typeahead').typeahead(
+      {
+      hint: true,
+      highlight: true,
+      minLength: 1
+      },
+      {
+      source: function (query, process) {
+          return $.getJSON(
+              "/api/sellOffers/typeahead/names",
+              { query: query },
+              function (data) {
+                console.log(data);
+                console.log(process);
+                  return process(data);
+              });
+            }
+          });
+        });
+</script>
   </body>
 </html>

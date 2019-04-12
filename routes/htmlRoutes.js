@@ -17,6 +17,12 @@ module.exports = function(app) {
     console.log("Not logged in!");
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
+//trying to access typeahead script file
+  app.get('/public/js/typeahead.js', function(req, res) {
+    res.sendFile(path.join(__dirname + '/../public/js/typeahead.js'));
+});
+
+
 //
   app.get("/signin", function(req, res) {
     // If the user already has an account send them to the members page
