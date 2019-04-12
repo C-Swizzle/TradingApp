@@ -186,6 +186,17 @@ app.get("/api/user_data", function(req, res) {
   }
 });
 
+app.put("/api/users/add-credit/:id",function(req,res){
+  db.Users.findOne({where:{id:req.params.id}}).then(function(userData){
+    var currentCredits=userData.credits;
+    console.log("got here");
+
+    db.Users.update({credits:(20+Number(currentCredits)).toString()},{where:{id:req.params.id}}).then(function(response){
+      console.log("updated");
+    })
+  })
+})
+
 //giantbomb route
 app.get("/api/giantbomb/:name", function(req, res) {
   var name = req.params.name;
