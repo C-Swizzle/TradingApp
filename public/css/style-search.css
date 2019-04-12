@@ -24,3 +24,8 @@
     background-color: #FEA680;
     opacity: 0.85;
     background-repeat: 100%;
+}
+.label-icon1{
+    position: relative;
+    left: 500px;
+}

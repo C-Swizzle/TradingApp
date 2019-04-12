@@ -38,3 +38,9 @@ color: black;
 #logo-container {
   width: 66%;
 }
+.parallax-container {
+  height: 300px;
+}
+
+{background-position: 50% 100px !important;
+height: 350px;background-size: 100%;}

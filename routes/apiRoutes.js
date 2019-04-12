@@ -1,4 +1,5 @@
 var db = require("../models");
+var axios = require("axios");
 
 var passport = require("../config/passport");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -122,5 +123,31 @@ app.get("/api/user_data", function(req, res) {
       address: req.user.address
     });
   }
+});
+
+//giantbomb route
+app.get("/api/giantbomb/:name", function(req, res) {
+  var name = req.params.name;
+  // if (!req.user) {
+  //   // The user is not logged in, send back an empty object
+  //   res.json({});
+  // }
+  // else {
+  //   // Otherwise ajax call to giant bomb
+  //   // Sending obj
+  var url = "https://www.giantbomb.com/api/search/?api_key="+process.env.GB_API+"&format=json&query="+name+"&resources=game";
+  console.log(url);
+  axios.get(url).then(function(result){
+    console.log(result.data.results);
+    res.json(result.data.results[0].image.medium_url);
+  });
+  // axios.get({
+  //   url: url, 
+  //   type: "GET",
+  //   success: function(result){
+  //     console.log(result.results[0].image.medium_url);
+  //   }
+  // });
+  // }
 });
 };
