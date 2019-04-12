@@ -9,46 +9,70 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  
 </head>
 <body>
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Logo</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-
+    <nav class="black" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" href="./index.html" class="brand-logo" style="font-family: Deftone-Stylus; color: whitesmoke;">The Cart & Disc</a>
+          <ul class="right hide-on-med-and-down">
+           
+            <li><a href="./signup.html">Sign Up</a></li>
+            <li><a href="./signin.html">Log In</a></li>
+          </ul>
+    
+          <ul id="nav-mobile" class="sidenav">
+            <li><a href="./signup.html">Sign Up</a></li>
+            <li><a href="./signin.html">Log In</a></li>
+            <br>
+            <li><a href="#">Recently Added</a></li>
+            <li><a href="#">Nintendo Switch</a></li>
+            <li><a href="#">XBOX one</a></li>
+            <li><a href="#">PS4</a></li>
+            <li><a href="#">Nintendo 3DS</a></li>
+            <br>
+            <li><a href="./list-game.html">Sell a game</a></li>
+            <li><a href="#">Credit Balance</a></li>
+            <li><a href="./buyer-feedback.html">Leave Feedback</a></li>
+            <br>
+            <li><a href="./ship-game.html">Ship Your Game</a></li>
+          </ul>  
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+      </nav>
+      <div class="nav-wrapper">
+            <div class="input-field">
+              <input id="search" type="search" required>
+              <label class="label-icon btn" for="search"><i class="material-icons">search</i></label>
+              
+            </div>
+      </div>
+ 
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
+        <h1 id="game-title" class="header center black-text"></h1>
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h5 id="game-title-text" class="header col s12 light"></h5>
         </div>
-        <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
-        </div>
-        <br><br>
+        
+        <br>
 
       </div>
     </div>
-    <div class="parallax"><img src="mainImage.png" alt="Unsplashed background img 1"></div>
+   
+    <div class="parallax paraImg1"><img class="paraImg1"src = ./resources/images/zelda.png alt="Unsplashed background img 1"></div>
   </div>
 
 
   <div class="container">
     <div class="section">
-
+        <div id="game-availability" class="row center black-text">
+            <h4>[#game-availability]</h4>
+           </div>
       <!--   Icon Section   -->
-      <div class="row">
+      <!-- <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
@@ -75,21 +99,16 @@
             <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
           </div>
         </div>
-      </div>
-
+      </div> -->
+      
     </div>
   </div>
 
 
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-        </div>
-      </div>
     </div>
-    <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
+    <div class="parallax"><img class ="paraImg2" src="./resources/images/zelda.png" alt="Unsplashed background img 2"></div>
   </div>
 
   <div class="container">
@@ -111,11 +130,11 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h5 class="header col s12 light"></h5>
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img class="paraImg1" src="./resources/images/zelda.png" alt="Unsplashed background img 3"></div>
   </div>
 
   <footer class="page-footer teal">
@@ -127,15 +146,7 @@
 
 
         </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
+        
         <div class="col l3 s12">
           <h5 class="white-text">Connect</h5>
           <ul>
@@ -159,7 +170,52 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script>
+  
+ 
+  $(document).ready(function(){
+    $('.parallax').parallax();
+   
+  
+  
+      var input = document.getElementById("search");
+      input.addEventListener("keyup", function(event) {
+        
+      //listens for return key
+      if (event.keyCode === 13 && input.value!=="") {
+          event.preventDefault();
+          console.log("return key hit");
+          console.log(input.value);
+          $.ajax({
+            type: "GET",
+            url: "/api/giantbomb/" + input.value, 
+            success: function(result){
+              console.log(result);
+              $(".paraImg1").attr("src",result);
+              $(".paraImg2").attr("src",result);
+            }});
+        } 
+      // else if
+      //   $( ".label-icon" ).click(function( event ) {
+            
+      //       console.log("yes");
+        
+      // }
+       else {
+        mainFunction(input.value);
+      }
+    });
+      console.log("javascript running")
 
+       function mainFunction(input){
+      //   //UPC code validation 
+      console.log(input)
+      
+       };
+      // console.log(res);
+    });    
+  </script>
+  
   </body>
 </html>
 
