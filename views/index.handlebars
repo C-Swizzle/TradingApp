@@ -1,8 +1,9 @@
+
 <nav class="black" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo"
         style="font-family: Deftone-Stylus; color: whitesmoke;">The Cart & Disc</a>
       <ul class="right hide-on-med-and-down">
-        {{!-- {{!-- <li><a href="./signup.html">Sign Up</a></li> --!}} --}}
+        
         <div class="valign-wrapper">
           <li>Welcome {{firstName}} {{lastName}}!</li>
           <li><a href="#"><i class="fa fa-fw fa-thumbs-up" ></i> {{numberOfPositiveRatings}}</a></li> 
@@ -35,15 +36,15 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
 </nav>
-    
+  
         
   
   <div class="container">
 
     <div class="row">
-    <form class="col s10 centered">
+    <form class="col s12 centered">
       <div class="row">
-        <div class="input-field col s10 centered">
+        <div class="input-field centered">
           <i class="material-icons prefix">search</i>
           <input class= "autocomplete" id="search" type="text" class="validate">
           <label for="icon_prefix">Search</label>
@@ -60,20 +61,20 @@
             {{!-- <label class="label-icon prefix" for="search">Search for a Game</label> --}}
             
           
-    <div id="search-results" style="display:none">
+    <div class="container col s12 centered" id="search-results" style="display:none">
       <h3>Search Results:</h3> 
     </div>
   </div>
   
   <div class="parallax-container">
-      <div class="parallax"><img src="./resources/images/mainImage.png" alt="mainImage"></div>
+      <div class="parallax"><img class="paraImg"src="./resources/images/mainImage.png" alt="mainImage"></div>
   </div>
     <div class="section white">
       <div class="row container">
           <div class="col s12">
 
       <div class="container col s12 centered"id="current"><h3>Your Current Sell Offers:</h3></div>
-      <table class="responsive-table col12 highlight centered">
+      <table class="striped centered">
         <thead>
           <tr>
               <th>Name</th>
@@ -118,7 +119,7 @@
   </div>
 
     <div class="parallax-container">
-      <div class="parallax"><img src="./resources/images/mainImage.png" alt="mainImage"></div>
+      <div class="parallax"><img class="paraImg"src="./resources/images/mainImage.png" alt="mainImage"></div>
     </div>
 
   <div class="section white">
@@ -126,7 +127,7 @@
           <div class="col s12">
 
       <div class="container col s12 centered"id="buy"><h3>Your Buy Requests:</h3></div>
-      <table class="responsive-table highlight center-align">
+      <table class="striped centered">
         <thead>
           <tr>
               <th>Name</th>
@@ -166,7 +167,7 @@
    
  
 <div class="parallax-container">
-      <div class="parallax"><img src="./resources/images/mainImage.png" alt="mainImage"></div>
+      <div class="parallax"><img class="paraImg"src="./resources/images/mainImage.png" alt="mainImage"></div>
     </div>
   
   
@@ -179,7 +180,7 @@
           <div class="col s12">
 
       <div class="container col s12 centered"id="in-progress"><h3>Transaction in Progress:</h3></div>
-      <table class="responsive-table highlight centered">
+      <table class="striped centered">
         <thead>
           <tr>
               <th>Name</th>
@@ -220,7 +221,7 @@
   </div>       
 
 <div class="parallax-container">
-      <div class="parallax"><img src="./resources/images/mainImage.png" alt="mainImage"></div>
+      <div class="parallax"><img class="paraImg"src="./resources/images/mainImage.png" alt="mainImage"></div>
     </div>
 
 <div class="section white">
@@ -228,7 +229,7 @@
           <div class="col s12">
 
       <div class="container col s12 centered"id="previous"><h3>Previous Sales:</h3></div>
-      <table class="responsive-table highlight centered">
+      <table class="striped centered">
         <thead>
           <tr>
               <th>Name</th>
@@ -264,7 +265,7 @@
 
 </div>
 
-  <script>
+<script>
 $(document).ready(function(){
 $('.parallax').parallax();
   //Autocomplete
@@ -295,8 +296,10 @@ $('.parallax').parallax();
   });
  // });
 //});
-
-
+  //giant bomb parrallax pic fill in....
+  
+      
+      
   $(document).keyup(function(event){
     event.preventDefault()
   })
@@ -319,7 +322,7 @@ $('.parallax').parallax();
         <div class="row container">
           <div class="col 12">
             
-              <table class="responsive-table highlight centered">
+              <table class="striped centered">
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -335,7 +338,7 @@ $('.parallax').parallax();
                       <td>${response[i].price}</td>
                       <td>${response[i].condition}</td>
                       <td>${response[i].consoleType}</td>
-                      <td><a href="#" class="buy-button" data-id=${response[i].id}>Buy This Game</a></td>
+                      <td><a href="#" class="waves-effect waves-light btn-small buy-button" data-id=${response[i].id}>Buy This Game</a></td>
                     </tr>
                 </tbody>
                 </table>
@@ -365,7 +368,7 @@ $(document).on("click",".del-button",function(){
     var url="/api/users/add-credit/"+id;
     
     $.ajax({method:"PUT",url:url,data:{}}).then(function(response){
-
+        
     })
   })  
 //get the sell offers from the user
@@ -379,14 +382,15 @@ $(document).on("click",".buy-button",function(){
       $("#"+idToBuy).append(response);
       if(response==="Success!"){
         $("#"+idToBuy).css("color","green");
+        window.location.reload();
       } else{
         $("#"+idToBuy).css("color","red");
 
       }
     })
-  })  
+   
 
-               
+})
 //get the sell offers from the user
 
 });
