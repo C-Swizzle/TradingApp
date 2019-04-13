@@ -17,13 +17,13 @@ module.exports = function(app) {
   app.get("/api/sellOffers/typeahead/names", function(req, res){
     db.sellOffers.findAll({}).then(function(offers){
       //res.json(offers);
-      //console.log(offers.length);
+      console.log(offers.length);
       var names_array = [];
       for(var i = 0; i< offers.length; i++){
         names_array.push(offers[i].name);
       }
       res.send(names_array);
-      console.log(names_array);
+      //console.log(names_array);
     })
   })
 //
@@ -118,17 +118,12 @@ app.get("/api/sellOffers/query/:name",function(req,res){
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page - that user's home landing page.
   // Otherwise the user will be sent an error
-//   app.post("api/signin", passport.authenticate("local", {
-//     successRedirect : '/members',
-//     failureRedirect : '/signin',
-//     failureFlash : true
-// }));
+
   app.post("/api/signin", passport.authenticate("local"),function(req, res) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
-    //return res.json();
-     //return res.json("/members");
+    
      return res.json("/homepage");
   });
 //
@@ -195,6 +190,7 @@ app.put("/api/users/add-credit/:id",function(req,res){
 
     db.Users.update({credits:(20+Number(currentCredits)).toString()},{where:{id:req.params.id}}).then(function(response){
       console.log("updated");
+      
     })
   })
 })
@@ -209,11 +205,19 @@ app.get("/api/giantbomb/:name", function(req, res) {
   // else {
   //   // Otherwise ajax call to giant bomb
   //   // Sending obj
-  var url = "https://www.giantbomb.com/api/search/?api_key="+process.env.GB_API+"&format=json&query="+name+"&resources=game";
+//process.env.GB_API
+  var api = "3bf64d217427ab1ef341e199e543d849f449f965"
+  var url = "https://www.giantbomb.com/api/search/?api_key="+api+"&format=json&query="+name+"&resources=game";
   console.log(url);
-  axios.get(url).then(function(result){
-    console.log(result.data.results);
+  axios.get(url).then(function(err, result){
+    if(err){
+      console.error(err);
+    }
+    else{
+      console.log(result.results[0].image.medium_url);
     res.json(result.data.results[0].image.medium_url);
+    }
+    
   });
   // axios.get({
   //   url: url, 

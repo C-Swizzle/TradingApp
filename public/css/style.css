@@ -27,6 +27,21 @@ color: black;
   font-family: 'Deftone-Stylus' ;
   src: url(' ../resources/fonts/DEFTONE.ttf') format('truetype');
 }
+
+/* @media screen and (max-width: 670px){
+  header{
+    min-height: 500px;
+  }
+}
+
+@media screen and (max-width: 507px){
+  .brand-logo{
+      font-size: 1.5em;
+  }
+  input.select-dropdown.dropdown-trigger{
+      font-size: .8em;
+  }
+} */
 #index-banner-img{
   background-image: url( ../resources/images/mainImage.png);
   opacity: 0.85;
