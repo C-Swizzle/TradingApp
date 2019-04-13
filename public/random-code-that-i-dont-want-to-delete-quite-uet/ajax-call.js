@@ -134,4 +134,91 @@ return dateTime;
       
     </div>
   </div>
+
+
+  <div class="container" id="in-progress"><div class="h1">Your Transactions in Progress:</div>
+ {{#each salesData}}
+  {{#if inTransaction}}
+  <div class="row">
+    
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">{{name}}</span>
+          <p>Price: {{price}} credits</p>
+         
+        </div>
+        <div class="card-action">
+          {{!-- <a class="waves-effect waves-light btn-small del-button" data-id={{id}}>Delete this Post</a> --}}
+          {{!-- <a href="#">Update this Post</a> --}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{/each}}
+</div>
+
+
+<div class="container" id="buy"><div class="h1">Your buy requests:</div>
+ {{#each buyData}}
   
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">{{name}}</span>
+          <p>Price: {{price}} credits</p>
+          <p>Transaction started at: {{transactionStartedAtTime}} </p>
+
+        </div>
+        <div class="card-action">
+          <a class="waves-effect waves-light btn-small feedback" data-id={{id}}>Give Feedback</a>
+          {{!-- <a href="#">Update this Post</a> --}}
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  {{/each}}
+</div>
+
+
+
+<div class="container" id="previous"><div class="h1">Your previous sales:</div>
+ {{#each salesData}}
+  {{#if soldBoolean}}
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">{{name}}</span>
+          <p>Price: {{price}} credits</p>
+          <p>Sold At: {{soldAtTime}} </p>
+
+        </div>
+        <div class="card-action">
+          <a class="waves-effect waves-light btn-small del-button" data-id={{id}}>Delete this Post</a>
+          {{!-- <a href="#">Update this Post</a> --}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{/each}}
+</div>
+
+  
+
+span class="card-title">Name: ${response[i].name}</span>
+              <p>Price: ${response[i].price}</p>
+              <p>Condition: ${response[i].condition}</p>
+              <p>Console: ${response[i].consoleType}</p>
+        
+            </div>
+            <div class="card-action">
+              <a href="#" class="buy-button" data-id=${response[i].id}>Buy this Game</a>
+            </div>
+            <div id=${response[i].id}></div>
+          </div>
+        </div>
