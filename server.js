@@ -51,7 +51,7 @@ require("./routes/apiRoutes")(app, passport);
 require("./routes/htmlRoutes")(app, passport);
 //var authRoute = require('./routes/auth.js')(app);
 
-var syncOptions = { force: false};
+var syncOptions = { force: true};
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
