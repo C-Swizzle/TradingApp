@@ -60,7 +60,7 @@
             {{!-- <label class="label-icon prefix" for="search">Search for a Game</label> --}}
             
           
-    <div id="search-results" style="display:none">
+    <div class="container col s12 centered" id="search-results" style="display:none">
       <h3>Search Results:</h3> 
     </div>
   </div>
@@ -328,7 +328,7 @@ $('.parallax').parallax();
                       <td>${response[i].price}</td>
                       <td>${response[i].condition}</td>
                       <td>${response[i].consoleType}</td>
-                      <td><a href="#" class="buy-button" data-id=${response[i].id}>Buy This Game</a></td>
+                      <td><a href="#" class="waves-effect waves-light btn-small buy-button" data-id=${response[i].id}>Buy This Game</a></td>
                     </tr>
                 </tbody>
                 </table>
