@@ -84,7 +84,9 @@ app.put("/api/sellOffers/buy", isAuthenticated,function(req, res){
             db.Users.findOne({where:{id:itemData.dataValues.UserId}}).then(function(sellerData){
               var sellerCredits=sellerData.credits;
               db.Users.update({credits:(Number(sellerCredits)+Number(itemCost)).toString()},{where:{id:itemData.dataValues.UserId}}).then(function(response){
+                db.sellOffers.update({tradeCompleteBool:1,hasBeenShippedBool:1,inTransaction:0,purgatoryCredits:null,shippedAtTime:dateTime()},{where:{id:itemId}}).then(function(response){
 
+                })
               })
             });
             })
