@@ -89,7 +89,7 @@
         <tbody>
           
             {{#each salesData}}
-            {{#unless soldBoolean}}
+            {{#unless tradeCompleteBool}}
             {{#unless inTransaction}}
             <tr>
             <td>{{name}} </td>
@@ -132,6 +132,8 @@
               <th>Name</th>
               <th>Price</th>
               <th>Transaction Started</th>
+              <th>Trade Complete</th>
+
               <th>Leave Feedback</th>
 
           </tr>
@@ -144,6 +146,12 @@
               <td>{{name}} </td>
               <td>{{price}}</td>
               <td>{{transactionStartedAtTime}}</td>
+              <td>{{#if tradeCompleteBool}}
+                Yes
+                {{else}}
+                No
+                {{/if}}
+              </td>
               <td><a class="waves-effect waves-light btn-small feedback" data-id={{id}}>Give Feedback</a></td>
             
           </tr>
@@ -215,7 +223,6 @@
       <div class="parallax"><img src="./resources/images/mainImage.png" alt="mainImage"></div>
     </div>
 
-
 <div class="section white">
       <div class="row container">
           <div class="col s12">
@@ -227,7 +234,7 @@
               <th>Name</th>
               <th>Price</th>
               <th>Sold Time</th>
-              <th>Delete?</th>
+              {{!-- <th>Delete?</th> --}}
               
 
           </tr>
@@ -236,13 +243,13 @@
         <tbody>
             
             {{#each salesData}}
-            {{#if soldBoolean}}
+            {{#if tradeCompleteBool}}
             
             <tr>
               <td>{{name}} </td>
               <td>{{price}}</td>
               <td>{{soldAtTime}}</td>
-              <td><a class="waves-effect waves-light btn-small del-button" data-id={{id}}>Delete this Post</a></td>
+              {{!-- <td><a class="waves-effect waves-light btn-small del-button" data-id={{id}}>Delete this Post</a></td> --}}
             
           </tr>
          {{/if}}
@@ -376,7 +383,6 @@ $(document).on("click",".buy-button",function(){
         $("#"+idToBuy).css("color","red");
 
       }
-     location.reload(true);
     })
   })  
 
